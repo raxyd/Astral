@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="imgs/logo/logo.png" type="image/png">
+</head>
+<body>
+    <script>
+        function applySavedTheme() {
+            const theme = localStorage.getItem('theme') || 'default';
+            document.body.className = theme + "-theme";
+    
+            // Apply the theme to other elements
+            document.querySelectorAll('.rounded-button').forEach(button => {
+                button.className = 'rounded-button ' + theme + '-theme';
+            });
+            document.querySelectorAll('input[type="range"]').forEach(range => {
+                range.className = theme + '-theme';
+            });
+            document.querySelectorAll('select').forEach(select => {
+                select.className = theme + '-theme';
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', applySavedTheme);
+    </script>  
+    <div id="particles-js"></div>
+    <h1 data-translate="title">Settings</h1>
+    <div class="settings-container">
+        <div class="setting">
+            <label for="theme-select" data-translate="theme-label">Theme:</label>
+            <select id="theme-select" onchange="updateTheme()">
+                <option value="default">Default</option>
+                <option value="black">Dark</option>
+                <option value="white">Somewhat Light</option>
+                <option value="green">Jungle</option>
+                <option value="blue">Ocean</option>
+                <option value="red">Blood</option>
+                <option value="pink">Blossom</option>
+                <option value="yellow">Dandelion</option>
+            </select>
+        </div>
+        </div>
+        <button class="rounded-button" onclick="openInAboutBlank()">Open in About:Blank 𓌜</button>
+        <a href="/"><button class="rounded-button2">Home ⌂</button></a>
+        <button class="rounded-button3" onclick="promptPassword()">!</button>
+    </div>
+    <div class="version-text">Version 1.7</div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="password.js"></script>
+    <script>
+        function updateTheme(theme = null) {
+            if (!theme) {
+                theme = document.getElementById('theme-select').value;
+            }
+            document.body.className = theme + "-theme";
+
+            document.querySelectorAll('.rounded-button').forEach(button => {
+                button.className = 'rounded-button ' + theme + '-theme';
+            });
+            document.querySelectorAll('input[type="range"]').forEach(range => {
+                range.className = theme + '-theme';
+            });
+            document.querySelectorAll('select').forEach(select => {
+                select.className = theme + '-theme';
+            });
+
+            localStorage.setItem('theme', theme);
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const savedTheme = localStorage.getItem('theme') || 'green';
+            updateTheme(savedTheme);
+        });
+
+function updateTheme(theme = null) {
+    if (!theme) {
+        theme = document.getElementById('theme-select').value;
+    }
+
+    document.body.style.transition = 'background 0.5s, color 0.5s';
+    document.body.className = theme + "-theme";
+    
+    document.querySelectorAll('.rounded-button').forEach(button => {
+        button.className = 'rounded-button ' + theme + '-theme';
+        button.style.transition = 'background 0.5s, color 0.5s, border-color 0.5s, background-color 0.5s, opacity 0.5s';
+    });
+    document.querySelectorAll('input[type="range"]').forEach(range => {
+        range.className = theme + '-theme';
+        range.style.transition = 'background 0.5s, color 0.5s, border-color 0.5s, background-color 0.5s, opacity 0.5s';
+    });
+    document.querySelectorAll('select').forEach(select => {
+        select.className = theme + '-theme';
+        select.style.transition = 'background 0.5s, color 0.5s, border-color 0.5s, background-color 0.5s, opacity 0.5s';
+    });
+
+    localStorage.setItem('theme', theme);
+}
+
+
+
+
+        function updateParticles() {
+            const density = document.getElementById('particle-density').value;
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": density,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "size": {
+                        "value": 1.5,
+                        "random": false
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false
+                    },
+                    "line_linked": {
+                        "enable": false,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+            localStorage.setItem('particleDensity', density);
+        }
+
+        function openInAboutBlank() {
+        const siteUrl = window.location.href;
+        const aboutBlankPage = window.open('about:blank', '_blank');
+
+        aboutBlankPage.document.write(`
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Stellar</title>
+                <link rel="icon" href="imgs/logo.png" type="image/png">
+                <style>
+                    body, html {
+                        margin: 0;
+                        padding: 0;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #f0f0f0; /* Adjust as needed */
+                    }
+                    iframe {
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                    }
+                </style>
+            </head>
+            <body>
+                <iframe src="${siteUrl}" frameborder="0"></iframe>
+            </body>
+            </html>
+        `);
+    }
+
+        function loadSettings() {
+            const theme = localStorage.getItem('theme') || 'default';
+            const particleDensity = localStorage.getItem('particleDensity') || 50;
+
+            document.getElementById('theme-select').value = theme;
+            document.getElementById('particle-density').value = particleDensity;
+
+            updateTheme();
+            updateLanguage();
+            updateParticles();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSettings();
+            particlesJS.load('particles-js', 'particles.json', function() {
+                console.log('callback - particles.js config loaded');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <script>
+    function updateTheme() {
+        const theme = document.getElementById('theme-select').value;
+        document.body.className = theme + "-theme";
+
+        document.querySelectorAll('.rounded-button').forEach(button => {
+            button.className = 'rounded-button ' + theme + '-theme';
+        });
+        document.querySelectorAll('input[type="range"]').forEach(range => {
+            range.className = theme + '-theme';
+        });
+        document.querySelectorAll('select').forEach(select => {
+            select.className = theme + '-theme';
+        });
+
+        localStorage.setItem('theme', theme);
+    }
+    </script>
+    <div id="particles-js"></div>
+    <h1>Feature Testing Page</h1>
+    <div class="test-container">
+        <!-- Buttons -->
+        <div class="button-container">
+            <button class="rounded-button">Rounded Button</button>
+            <button class="rounded-button">Another Button</button>
+        </div>
+        
+        <!-- Scrollable Content -->
+        <div class="scrollable-content">
+            <p>This is some scrollable content. Scroll down to see more...</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt, nisi at ultrices aliquet, nulla erat vestibulum justo, ut lacinia nulla lectus vitae nunc. Curabitur at quam at lectus bibendum interdum.</p>
+            <p>Aenean egestas tempus ante. Integer ac lacus sed est finibus fermentum. Nullam vitae placerat ligula. In pretium vehicula mauris, ac efficitur risus mollis non.</p>
+            <p>Pellentesque bibendum sapien et tortor feugiat, eget tristique purus feugiat. Proin dictum, nunc sit amet venenatis scelerisque, risus neque vestibulum justo, id iaculis enim quam at dui. Nam at erat orci. Phasellus sit amet dui neque.</p>
+            <p>Ut facilisis, nisi ac dictum facilisis, magna mi mollis orci, at bibendum libero eros in ligula. Cras tempor, metus at porttitor egestas, ligula erat luctus risus, eu rutrum odio erat non orci.</p>
+            <p>Maecenas lobortis nisl neque, non ultricies massa laoreet a. Nullam efficitur, ex ut tempor cursus, magna ligula blandit purus, ac tempor tortor augue in magna. Etiam malesuada sem purus.</p>
+        </div>
+
+        <!-- Dropdowns -->
+        <div class="setting">
+            <label for="theme-select">Theme:</label>
+                <div class="setting">
+                    <label for="theme-select" data-translate="theme-label">Theme:</label>
+                    <select id="theme-select" onchange="updateTheme()">
+                        <option value="default">Default</option>
+                        <option value="green">Jungle</option>
+                        <option value="blue">Ocean</option>
+                        <option value="red">Blood</option>
+                    </select>
+        </div>
+        <div class="setting">
+            <label for="language-select">Language:</label>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="jp">Japanese</option>
+            </select>
+        </div>
+        <!-- Sliders -->
+        <div class="setting">
+            <label for="particle-density">Particle Density:</label>
+            <input type="range" id="particle-density" min="0" max="100" value="50">
+        </div>
+
+        <!-- Links -->
+        <a href="/"><button class="rounded-button">Back to Homepage</button></a>
+        <a href="/g"><button class="rounded-button">Games</button></a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Simulate particles.js initialization
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
+
+        // Theme and Language Change Simulation
+        document.getElementById('theme-select').addEventListener('change', function() {
+            const theme = this.value;
+            document.body.className = theme;
+            localStorage.setItem('theme', theme);
+        });
+
+        document.getElementById('language-select').addEventListener('change', function() {
+            const language = this.value;
+            localStorage.setItem('language', language);
+            alert('Language set to ' + language); // For demonstration purposes
+        });
+
+        // Load settings from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const theme = localStorage.getItem('theme') || 'default';
+            const language = localStorage.getItem('language') || 'en';
+            const particleDensity = localStorage.getItem('particleDensity') || 50;
+
+            document.getElementById('theme-select').value = theme;
+            document.getElementById('language-select').value = language;
+            document.getElementById('particle-density').value = particleDensity;
+
+            document.body.className = theme;
+        });
+    </script>
+        <script>
+            function applySavedTheme() {
+                const theme = localStorage.getItem('theme') || 'default';
+                document.body.className = theme + "-theme";
+        
+                // Apply the theme to other elements
+                document.querySelectorAll('.rounded-button').forEach(button => {
+                    button.className = 'rounded-button ' + theme + '-theme';
+                });
+                document.querySelectorAll('input[type="range"]').forEach(range => {
+                    range.className = theme + '-theme';
+                });
+                document.querySelectorAll('select').forEach(select => {
+                    select.className = theme + '-theme';
+                });
+            }
+        
+            document.addEventListener('DOMContentLoaded', applySavedTheme);
+        </script>   
+</body>
+</html>
