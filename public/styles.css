@@ -49,7 +49,8 @@ body::-webkit-scrollbar-thumb {
 h1 {
     font-size: 3em;
     animation: glow 1.5s ease-in-out infinite alternate;
-    text-shadow: 0 0 7px #ffffff, 0 0 14px #3f3f3f, 0 0 21px #ffffff, 0 0 28px #3f3f3f, 0 0 35px #ffffff;
+    text-shadow: 0 0 7px #ffffff, 0 0 14px #ffffff, 0 0 21px #ffffff, 0 0 28px #ffffff, 0 0 35px #ffffff;
+    -webkit-text-fill-color: #ffffff;
 }
 
 h2 {
@@ -278,7 +279,7 @@ body {
 
 #dynamic-text {
     display: inline;
-    color: #4e4e4e;
+    color: #ffffff;
     animation: blink-caret 0.75s step-end infinite;
 }
 
@@ -693,7 +694,7 @@ body.black-theme::-webkit-scrollbar-thumb {
 }
 
 select.black-theme {
-    background-color: #000000;
+    background-color: #ffffff;
     border: 2px solid #000000;
     color: white;
 }
