@@ -56,7 +56,7 @@ h1 {
 h2 {
     font-size: 1.5em;
     position: fixed;
-    top: 430px;
+    top: 425px;
 }
 
 .button-container, .search-container {
@@ -428,7 +428,7 @@ input[type="range"]::-moz-range-thumb {
 
 .credit-text {
     position: fixed;
-    bottom: 10px;
+    bottom: 0.5px;
     left: 10px;
     color: #000000cc;
     font-size: 6em;
