@@ -809,6 +809,116 @@ select.yellow-theme:hover {
     background-color: #545736;
 }
 
+/* autumn theme */
+body.autumn-theme {
+    background: linear-gradient(135deg, #c08d00, #815f00);
+    color: rgb(0, 0, 0);
+}
+
+body, .rounded-button, input[type="range"], select {
+    transition: background-color 0.5s, color 0.5s, border-color 0.5s, background-color 0.5s, opacity 0.5s;
+}
+
+.rounded-button.autumn-theme {
+    background-color: #c08d00;
+    border: 2px solid #545736;
+    color: white;
+    opacity: 0.7;
+}
+
+.rounded-button.autumn-theme:hover {
+    background-color: #c08d00;
+    border-color: #545736;
+}
+
+input[type="range"].autumn-theme {
+    background: linear-gradient(135deg, #545736, #c08d00);
+}
+
+input[type="range"].autumn-theme::-webkit-slider-thumb {
+    background: #c08d00;
+    border: 2px solid #545736;
+}
+
+input[type="range"].autumn-theme::-moz-range-thumb {
+    background: #c08d00;
+    border: 2px solid #545736;
+}
+
+body.autumn-theme::-webkit-scrollbar-track {
+    background: #c08d00;
+}
+
+body.autumn-theme::-webkit-scrollbar-thumb {
+    background-color: #545736;
+    border: 2px solid black;
+}
+
+select.autumn-theme {
+    background-color: #545736;
+    border: 2px solid #545736;
+    color: white;
+}
+
+select.autumn-theme:hover {
+    background-color: #545736;
+}
+
+/* winter theme */
+body.winter-theme {
+    background: linear-gradient(135deg, #a4d3ff, #475b6e);
+    color: rgb(0, 0, 0);
+}
+
+body, .rounded-button, input[type="range"], select {
+    transition: background-color 0.5s, color 0.5s, border-color 0.5s, background-color 0.5s, opacity 0.5s;
+}
+
+.rounded-button.winter-theme {
+    background-color: #a4d3ff;
+    border: 2px solid #475b6e;
+    color: white;
+    opacity: 0.7;
+}
+
+.rounded-button.winter-theme:hover {
+    background-color: #a4d3ff;
+    border-color: #475b6e;
+}
+
+input[type="range"].winter-theme {
+    background: linear-gradient(135deg, #475b6e, #a4d3ff);
+}
+
+input[type="range"].winter-theme::-webkit-slider-thumb {
+    background: #a4d3ff;
+    border: 2px solid #475b6e;
+}
+
+input[type="range"].winter-theme::-moz-range-thumb {
+    background: #a4d3ff;
+    border: 2px solid #475b6e;
+}
+
+body.winter-theme::-webkit-scrollbar-track {
+    background: #a4d3ff;
+}
+
+body.winter-theme::-webkit-scrollbar-thumb {
+    background-color: #475b6e;
+    border: 2px solid black;
+}
+
+select.winter-theme {
+    background-color: #475b6e;
+    border: 2px solid #475b6e;
+    color: white;
+}
+
+select.winter-theme:hover {
+    background-color: #475b6e;
+}
+
 #cursor {
     display: inline-block;
     width: 10px;
