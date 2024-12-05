@@ -54,9 +54,15 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5em;
+    color: #ffffffcc;
+    font-size: 1.025em;
     position: fixed;
-    top: 425px;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    animation: glow 1s ease-in-out infinite alternate;
 }
 
 .button-container, .search-container {
@@ -205,7 +211,7 @@ input[type="text"]::placeholder {
     padding: 20px;
     width: 80%; 
     height: 100vh;
-    background-color: #00000000;
+    color: #00000000;
     height: 100vh;
     position: relative;
     scroll-snap-type: y mandatory;
@@ -218,6 +224,7 @@ input[type="text"]::placeholder {
     padding: 20px;
     width: 80%; 
     height: 100%;
+    background-color: #00000000;
 }
 
 .game-button {
@@ -427,13 +434,15 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .credit-text {
-    position: fixed;
-    bottom: 0.5px;
-    left: 10px;
     color: #000000cc;
     font-size: 6em;
-    z-index: 1000;
+    z-index: 100;
+    position: fixed;
     pointer-events: none;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
 }
 
 /* green theme */
@@ -756,7 +765,7 @@ select.white-theme:hover {
 
 /* YELLOW theme */
 body.yellow-theme {
-    background: linear-gradient(135deg, #c0bd00, #fffc50);
+    background: linear-gradient(135deg, #c0bd00, #92902d);
     color: rgb(0, 0, 0);
 }
 
@@ -949,6 +958,7 @@ body {
 
 .container {
     text-align: center;
+    color: #00000000;
 }
 
 h1 {
@@ -966,5 +976,71 @@ h1 {
 .container {
     height: 100vh;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
+    color: #00000000;
+}
+
+.profile-container {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #7341ffcc, #220081cc);
+    color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.profile-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.avatar-preview {
+    margin-bottom: 20px;
+}
+
+.avatar-preview img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+
+.avatar-upload{
+    background-color: #00000025;
+    border: color;
+    color: rgb(255, 255, 255);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 30px;
+    border-color: #865affcc;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px #0000004d;
+}
+.background-select {
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
 }
