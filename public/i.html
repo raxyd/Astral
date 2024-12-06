@@ -33,6 +33,27 @@
     <div id="particles-js"></div>
         <h1>Welcome to <span id="dynamic-text"></span></h1>
         <h2>Made By Rax</h2>
+        <div id="randomMessage"></div>
+        <script>
+            // Array of messages
+            const messages = [
+                "Gen Alpha cooked",
+                "Shoutout to Falconlink bruh",
+                "I got it ou🥁🥁🥁🥁🥁🥁da mud frfr",
+                "Keyton might be a crashout but yall are the reason he is",
+            ];
+    
+            // Function to get a random message
+            function getRandomMessage() {
+                const randomIndex = Math.floor(Math.random() * messages.length);
+                return messages[randomIndex];
+            }
+    
+            // Display the random message on page load
+            window.onload = function() {
+                document.getElementById('randomMessage').textContent = getRandomMessage();
+            };
+        </script>
     </div>
     <button class="rounded-button3" onclick="promptPassword()">!</button>
     <div class="button-container">
