@@ -28,13 +28,12 @@
     <div id="particles-js"></div>
     <h1>Feature Testing Page</h1>
     <div class="test-container">
-        <!-- Buttons -->
+
         <div class="button-container">
             <button class="rounded-button">Rounded Button</button>
             <button class="rounded-button">Another Button</button>
         </div>
         
-        <!-- Scrollable Content -->
         <div class="scrollable-content">
             <p>This is some scrollable content. Scroll down to see more...</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt, nisi at ultrices aliquet, nulla erat vestibulum justo, ut lacinia nulla lectus vitae nunc. Curabitur at quam at lectus bibendum interdum.</p>
@@ -48,7 +47,6 @@
         <p>Anyone from my school, This is Rai'Jon's site.</p>
         </div>
 
-        <!-- Dropdowns -->
         <div class="setting">
             <label for="theme-select">Theme:</label>
                 <div class="setting">
@@ -70,25 +68,22 @@
                 <option value="jp">Japanese</option>
             </select>
         </div>
-        <!-- Sliders -->
+
         <div class="setting">
             <label for="particle-density">Particle Density:</label>
             <input type="range" id="particle-density" min="0" max="100" value="50">
         </div>
 
-        <!-- Links -->
         <a href="/"><button class="rounded-button">Back to Homepage</button></a>
         <a href="/g"><button class="rounded-button">Games</button></a>
     </div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="app.js"></script>
     <script>
-        // Simulate particles.js initialization
         particlesJS.load('particles-js', 'particles.json', function() {
             console.log('callback - particles.js config loaded');
         });
 
-        // Theme and Language Change Simulation
         document.getElementById('theme-select').addEventListener('change', function() {
             const theme = this.value;
             document.body.className = theme;
@@ -98,10 +93,9 @@
         document.getElementById('language-select').addEventListener('change', function() {
             const language = this.value;
             localStorage.setItem('language', language);
-            alert('Language set to ' + language); // For demonstration purposes
+            alert('Language set to ' + language);
         });
 
-        // Load settings from localStorage
         document.addEventListener('DOMContentLoaded', function() {
             const theme = localStorage.getItem('theme') || 'default';
             const language = localStorage.getItem('language') || 'en';
@@ -119,7 +113,6 @@
                 const theme = localStorage.getItem('theme') || 'default';
                 document.body.className = theme + "-theme";
         
-                // Apply the theme to other elements
                 document.querySelectorAll('.rounded-button').forEach(button => {
                     button.className = 'rounded-button ' + theme + '-theme';
                 });

@@ -291,44 +291,9 @@
             </div>
         </div>
         </div>
-        <!-- Additional game buttons here -->
     </div>
 
-    <script src="js/cool.js"></script>
-    <script>
-        // Function to handle the form submission and add the game dynamically
-        document.getElementById('addGameForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // Get input values
-            const gameName = document.getElementById('gameName').value;
-            const gameURL = document.getElementById('gameURL').value;
-            const gameImage = document.getElementById('gameImage').value;
-
-            // Create a new game button
-            const newGameButton = document.createElement('div');
-            newGameButton.classList.add('game-button');
-
-            // Create the link with the game image
-            const newLink = document.createElement('a');
-            newLink.href = gameURL;
-
-            // Create the image element
-            const newImage = document.createElement('img');
-            newImage.src = gameImage;
-            newImage.alt = gameName + ' Cover';
-
-            // Append the image to the link, and the link to the new game button
-            newLink.appendChild(newImage);
-            newGameButton.appendChild(newLink);
-
-            // Append the new game button to the games container
-            document.getElementById('gamesContainer').appendChild(newGameButton);
-
-            // Clear the form after submission
-            document.getElementById('addGameForm').reset();
-        });
-    </script>    
+    <script src="js/cool.js"></script>   
 
 <script>
     function applySavedTheme() {

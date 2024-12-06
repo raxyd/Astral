@@ -190,8 +190,7 @@
 
         document.addEventListener('mousemove', resetIdleTimer);
         document.addEventListener('keydown', resetIdleTimer);
-
-        // Function to load the profile picture on the main page
+        
         function loadProfilePicture() {
             const profile = JSON.parse(localStorage.getItem('userProfile'));
             if (profile && profile.avatar) {
