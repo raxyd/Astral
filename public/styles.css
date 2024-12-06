@@ -343,7 +343,7 @@ select, input[type="range"] {
 }
 
 body.default {
-    background: linear-gradient(135deg, #7341ffcc, #220081cc);
+    background: linear-gradient(135deg, #ffffffcc, #ffffffcc);
     color: white;
 }
 
@@ -669,7 +669,7 @@ body.black-theme {
 
 .rounded-button.black-theme {
     background-color: #000000;
-    border: 2px solid #ffffff;
+    border: 2px solid #000000;
     color: white;
     opacity: 0.7;
 }
@@ -694,7 +694,7 @@ input[type="range"].black-theme::-moz-range-thumb {
 }
 
 body.black-theme::-webkit-scrollbar-track {
-    background: #ffffff;
+    background: #000000;
 }
 
 body.black-theme::-webkit-scrollbar-thumb {
@@ -703,8 +703,8 @@ body.black-theme::-webkit-scrollbar-thumb {
 }
 
 select.black-theme {
-    background-color: #ffffff;
-    border: 2px solid #000000;
+    background-color: #000000;
+    border: 1px solid #5a5a5a;
     color: white;
 }
 
