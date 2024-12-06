@@ -13,7 +13,6 @@
             const theme = localStorage.getItem('theme') || 'default';
             document.body.className = theme + "-theme";
     
-            // Apply the theme to other elements
             document.querySelectorAll('.rounded-button').forEach(button => {
                 button.className = 'rounded-button ' + theme + '-theme';
             });

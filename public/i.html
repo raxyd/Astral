@@ -35,7 +35,6 @@
         <h2>Made By Rax</h2>
         <div id="randomMessage"></div>
         <script>
-            // Array of messages
             const messages = [
                 "Gen Alpha cooked",
                 "Millennial cooked",
@@ -44,14 +43,12 @@
                 "Keyton might be a crashout but yall are the reason he is",
                 "Also shoutout to Link Drop for getting me into unblocked games frfr",
             ];
-    
-            // Function to get a random message
+
             function getRandomMessage() {
                 const randomIndex = Math.floor(Math.random() * messages.length);
                 return messages[randomIndex];
             }
     
-            // Display the random message on page load
             window.onload = function() {
                 document.getElementById('randomMessage').textContent = getRandomMessage();
             };
@@ -214,7 +211,6 @@
         document.addEventListener('mousemove', resetIdleTimer);
         document.addEventListener('keydown', resetIdleTimer);
 
-        // Function to load the profile picture on the main page
         function loadProfilePicture() {
             const profile = JSON.parse(localStorage.getItem('userProfile'));
             if (profile && profile.avatar) {
