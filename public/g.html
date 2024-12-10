@@ -405,6 +405,7 @@
         <!-- Additional game buttons here -->
     </div>
     <script src="js/cool.js"></script>  
+    <script src="js/sort.js"></script>  
 
 <script>
     function applySavedTheme() {
@@ -424,5 +425,26 @@
 
     document.addEventListener('DOMContentLoaded', applySavedTheme);
 </script> 
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const gamesContainer = document.getElementById('gamesContainer');
+    const games = Array.from(gamesContainer.getElementsByClassName('game-button'));
+
+    // Sort the game elements by the src attribute of their images
+    games.sort((a, b) => {
+        const srcA = a.querySelector('img').getAttribute('src').toLowerCase();
+        const srcB = b.querySelector('img').getAttribute('src').toLowerCase();
+        return srcA.localeCompare(srcB);
+    });
+
+    // Remove existing game elements
+    gamesContainer.innerHTML = '';
+
+    // Append sorted game elements
+    games.forEach(game => gamesContainer.appendChild(game));
+});
+
+</script>
 </body>
 </html>
