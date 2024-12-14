@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Quests</h1>
+    <h1>All Quests</h1>
+            </div>
     <div class="quest-container">
         <div class="quest-item">
             <input type="checkbox" id="quest1" disabled>
@@ -24,6 +25,10 @@
             <input type="checkbox" id="quest4" disabled>
             <label for="quest4">Play Astray</label>
         </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest5" disabled>
+            <label for="quest5">Find the Secret Page</label>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/app.js"></script>
@@ -36,10 +41,12 @@
             const quest2 = document.getElementById('quest2').checked;
             const quest3 = document.getElementById('quest3').checked;
             const quest4 = document.getElementById('quest4').checked;
+            const quest5 = document.getElementById('quest5').checked;
             localStorage.setItem('quest1', quest1);
             localStorage.setItem('quest2', quest2);
             localStorage.setItem('quest3', quest3);
             localStorage.setItem('quest4', quest4);
+            localStorage.setItem('quest5', quest5);
         }
 
 
@@ -48,10 +55,12 @@
             const quest2 = localStorage.getItem('quest2') === 'true';
             const quest3 = localStorage.getItem('quest3') === 'true';
             const quest4 = localStorage.getItem('quest4') === 'true';
+            const quest5 = localStorage.getItem('quest5') === 'true';
             document.getElementById('quest1').checked = quest1;
             document.getElementById('quest2').checked = quest2;
             document.getElementById('quest3').checked = quest3;
             document.getElementById('quest4').checked = quest4;
+            document.getElementById('quest5').checked = quest5;
         }
 
         function checkQuestsByPath() {
