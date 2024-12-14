@@ -73,6 +73,7 @@
         </script>
     </div>
     <a onclick="promptPassword()"><button class="rounded-button3 slide-in-right">!</button></a>
+    <a onclick="promptPassword2()"><button class="rounded-button9 slide-in-right">!</button></a>
     <div class="button-container slide-in-right">
         <a href="/g" onclick="startTransition(event)"><button class="rounded-button4">Games *✧･ﾟ</button></a>
         <a href="/s" onclick="startTransition(event)"><button class="rounded-button4">Settings ⚙</button></a>
@@ -262,6 +263,17 @@
 
     if (password === correctPassword) {
           localStorage.setItem('quest3', 'true');
+    } else {
+        alert('Incorrect password. Please try again.');
+    }
+}
+
+function promptPassword2() {
+    const password = prompt('Please enter the password:');
+    const correctPassword = '1925'; // Change this to your desired password
+
+    if (password === correctPassword) {
+          localStorage.setItem('quest3141592653', 'true');
     } else {
         alert('Incorrect password. Please try again.');
     }

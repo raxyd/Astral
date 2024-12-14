@@ -2,24 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Settings</title>
+    <title>Stellar Profile</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="imgs/logo/logo.png" type="image/png">
 </head>
 <body>
-        <h1>Profile Settings</h1>
-        <div class="avatar-preview">
-            <img id="avatarPreview" src="default-avatar.png" alt="Avatar">
-        </div>
-        <div class="avatar-upload">
-            <label for="avatar">Upload Avatar:</label>
-            <input type="file" id="avatar" name="avatar" onchange="previewAvatar()">
-        </div>
-            </select>
-        </div>
-        <button class="rounded-button" onclick="saveProfile()">Save Profile</button>
-    </div>
+    <header>
+        <h1>Your Profile</h1>
+    </header>
+    <main>
+        <section class="profile-section">
+            <div class="profile-avatar">
+                <img id="avatar" src="default-avatar.png" alt="User Avatar">
+                <input type="file" id="avatar-upload" accept="image/*">
+            </div>
+            <div class="profile-details">
+                <textarea id="bio" placeholder="Write your bio..."></textarea>
+                <input type="text" id="status" placeholder="What's on your mind?">
+                <button onclick="saveProfile()">Save Profile</button>
+            </div>
+        </section>
+    </main>
+    <script src="js/profile.js"></script>
+</body>
+</html>
+
     <script src="js/profile.js"></script>
     <script>
         function updateTheme(theme = null) {

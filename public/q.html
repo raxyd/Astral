@@ -22,12 +22,28 @@
             <label for="quest3">Guess the Password</label>
         </div>
         <div class="quest-item">
+            <input type="checkbox" id="quest3141592653" disabled>
+            <label for="quest3141592653">Guess the Password 2</label>
+        </div>
+        <div class="quest-item">
             <input type="checkbox" id="quest4" disabled>
             <label for="quest4">Play Astray</label>
         </div>
         <div class="quest-item">
             <input type="checkbox" id="quest5" disabled>
             <label for="quest5">Find the Secret Page</label>
+        </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest6" disabled>
+            <label for="quest6">Play Gimme the Airpod</label>
+        </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest7" disabled>
+            <label for="quest7">Play OVO</label>
+        </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest8" disabled>
+            <label for="quest8">Play Doge 2048</label>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -42,11 +58,20 @@
             const quest3 = document.getElementById('quest3').checked;
             const quest4 = document.getElementById('quest4').checked;
             const quest5 = document.getElementById('quest5').checked;
+            const quest6 = document.getElementById('quest6').checked;
+            const quest7 = document.getElementById('quest7').checked;
+            const quest8 = document.getElementById('quest8').checked;
+            const quest3141592653 = document.getElementById('quest3141592653').checked;
             localStorage.setItem('quest1', quest1);
             localStorage.setItem('quest2', quest2);
             localStorage.setItem('quest3', quest3);
             localStorage.setItem('quest4', quest4);
             localStorage.setItem('quest5', quest5);
+            localStorage.setItem('quest6', quest6);
+            localStorage.setItem('quest7', quest7);
+            localStorage.setItem('quest8', quest8);
+            localStorage.setItem('quest3141592653', quest3141592653);
+
         }
 
 
@@ -56,11 +81,19 @@
             const quest3 = localStorage.getItem('quest3') === 'true';
             const quest4 = localStorage.getItem('quest4') === 'true';
             const quest5 = localStorage.getItem('quest5') === 'true';
+            const quest6 = localStorage.getItem('quest6') === 'true';
+            const quest7 = localStorage.getItem('quest7') === 'true';
+            const quest8 = localStorage.getItem('quest8') === 'true';
+            const quest3141592653 = localStorage.getItem('quest3141592653') === 'true';
             document.getElementById('quest1').checked = quest1;
             document.getElementById('quest2').checked = quest2;
             document.getElementById('quest3').checked = quest3;
             document.getElementById('quest4').checked = quest4;
             document.getElementById('quest5').checked = quest5;
+            document.getElementById('quest6').checked = quest6;
+            document.getElementById('quest7').checked = quest7;
+            document.getElementById('quest8').checked = quest8;
+            document.getElementById('quest3141592653').checked = quest3141592653;
         }
 
         function checkQuestsByPath() {
