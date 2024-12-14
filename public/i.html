@@ -10,6 +10,24 @@
     <meta property="og:description" content="THE BEST GAMES WEBSITE TO DATE, THE ABSOLUTE GOAT, STELLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR">
     <meta property="og:image" content="https://cdn.discordapp.com/attachments/1302688793706627153/1308605549826277416/stellar.png?ex=67447c23&is=67432aa3&hm=3cb92708d7a3b197b02fe54da55e1e0119cef40d2318d84ad602d53aff35c205&">
     <meta property="og:type" content="website">
+    <style>
+        .slide-out-right {
+            transform: translateX(0);
+            transition: transform 1s ease-in-out;
+        }
+        .slide-out-right.hide {
+            transform: translateX(100%);
+        }
+        .slide-in-right {
+            transform: translateX(-100%);
+            animation: slide-in 1s forwards;
+        }
+        @keyframes slide-in {
+            to {
+                transform: translateX(0);
+            }
+        }
+    </style>
 </head>
 <body>
     <script>
@@ -30,10 +48,10 @@
     
         document.addEventListener('DOMContentLoaded', applySavedTheme);
     </script>   
-    <div id="particles-js"></div>
-        <h1>Welcome to <span id="dynamic-text"></span></h1>
-        <h2>Made By Rax</h2>
-        <div id="randomMessage"></div>
+    <div id="particles-js" class="slide-in-right"></div>
+        <h1 class="slide-in-right">Welcome to <span id="dynamic-text"></span></h1>
+        <h2 class="slide-in-right">Made By Rax</h2>
+        <div id="randomMessage" class="slide-in-right"></div>
         <script>
             const messages = [
                 "Gen Alpha cooked",
@@ -54,15 +72,17 @@
             };
         </script>
     </div>
-    <button class="rounded-button3" onclick="promptPassword()">!</button>
-    <div class="button-container">
-        <a href="/g"><button class="rounded-button4">Games *✧･ﾟ</button></a>
-        <a href="/s"><button class="rounded-button4">Settings ⚙</button></a>
+    <a onclick="promptPassword()"><button class="rounded-button3 slide-in-right">!</button></a>
+    <div class="button-container slide-in-right">
+        <a href="/g" onclick="startTransition(event)"><button class="rounded-button4">Games *✧･ﾟ</button></a>
+        <a href="/s" onclick="startTransition(event)"><button class="rounded-button4">Settings ⚙</button></a>
+        <a href="/q" onclick="startTransition(event)"><button class="rounded-button4">Quests ₊˚ʚ</button></a>
+        <a href="https://discord.gg/ZTVCJcKdvp" onclick="startTransition(event)"><button class="rounded-button4">Discord ⋄</button></a>
     </div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/dynamicText.js"></script>
-    <script src="password.js"></script>
+    <script src="js/quests.js"></script>
     <script>
         function loadSettings() {
             document.body.className = theme;
@@ -221,7 +241,35 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadProfilePicture();
         });
-    </script>
+
+        function startTransition(event) {
+            event.preventDefault();
+            document.body.classList.add('hide');
+            setTimeout(() => {
+                window.location.href = event.target.closest('a').href;
+            }, 1000);
+        }
+
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.slide-in-right').forEach(element => {
+                element.classList.remove('slide-in-right');
+            });
+        });
+
+        function promptPassword() {
+    const password = prompt('Please enter the password:');
+    const correctPassword = 'cosmic123'; // Change this to your desired password
+
+    if (password === correctPassword) {
+          localStorage.setItem('quest3', 'true');
+    } else {
+        alert('Incorrect password. Please try again.');
+    }
+}
+
+   </script>
+
+    
     <div class="version-text">Version 1.855</div>
 </body>
 </html>

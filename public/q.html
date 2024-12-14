@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quests</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Quests</h1>
+    <div class="quest-container">
+        <div class="quest-item">
+            <input type="checkbox" id="quest1" disabled>
+            <label for="quest1">Play Basketball Stars</label>
+        </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest2" disabled>
+            <label for="quest2">Play Basket Random</label>
+        </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest3" disabled>
+            <label for="quest3">Guess the Password</label>
+        </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest4" disabled>
+            <label for="quest4">Play Astray</label>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/dynamicText.js"></script>
+    <script src="password.js"></script>
+    <script>
+
+        function saveQuests() {
+            const quest1 = document.getElementById('quest1').checked;
+            const quest2 = document.getElementById('quest2').checked;
+            const quest3 = document.getElementById('quest3').checked;
+            const quest4 = document.getElementById('quest4').checked;
+            localStorage.setItem('quest1', quest1);
+            localStorage.setItem('quest2', quest2);
+            localStorage.setItem('quest3', quest3);
+            localStorage.setItem('quest4', quest4);
+        }
+
+
+        function loadQuests() {
+            const quest1 = localStorage.getItem('quest1') === 'true';
+            const quest2 = localStorage.getItem('quest2') === 'true';
+            const quest3 = localStorage.getItem('quest3') === 'true';
+            const quest4 = localStorage.getItem('quest4') === 'true';
+            document.getElementById('quest1').checked = quest1;
+            document.getElementById('quest2').checked = quest2;
+            document.getElementById('quest3').checked = quest3;
+            document.getElementById('quest4').checked = quest4;
+        }
+
+        function checkQuestsByPath() {
+            const path = window.location.pathname;
+            if (path.includes('g/basketball-stars/basketball-stars-main/index.html')) {
+                document.getElementById('quest1').checked = true;
+            } else if (path.includes('g/basket-random/basket-random-main/index.html')) {
+                document.getElementById('quest2').checked = true;
+            }
+            saveQuests(); // Save the checked state to local storage
+        }
+
+        // Load and check quests on page load
+        window.onload = function() {
+            loadQuests();
+            checkQuestsByPath();
+        }
+    </script>
+    <script>
+        function applySavedTheme() {
+            const theme = localStorage.getItem('theme') || 'default';
+            document.body.className = theme + "-theme";
+            
+            document.querySelectorAll('.rounded-button').forEach(button => {
+                button.className = 'rounded-button ' + theme + '-theme';
+            });
+            document.querySelectorAll('input[type="range"]').forEach(range => {
+                range.className = theme + '-theme';
+            });
+            document.querySelectorAll('select').forEach(select => {
+                select.className = theme + '-theme';
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', applySavedTheme);
+    </script>   
+    <div id="particles-js" class="slide-in-right"></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        function loadSettings() {
+            document.body.className = theme;
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-translate');
+                el.textContent = translations[language][key];
+            });
+
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": particleDensity,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "size": {
+                        "value": 1.5,
+                        "random": false
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false
+                    },
+                    "line_linked": {
+                        "enable": false,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+
+        const translations = {
+            en: {
+                title: "Galaxy Settings",
+                themeLabel: "Theme:",
+                languageLabel: "Language:",
+                particleLabel: "Particle Density:"
+            },
+            es: {
+                title: "Configuración de Galaxy",
+                themeLabel: "Tema:",
+                languageLabel: "Idioma:",
+                particleLabel: "Densidad de Partículas:"
+            },
+            fr: {
+                title: "Paramètres de Galaxy",
+                themeLabel: "Thème:",
+                languageLabel: "Langue:",
+                particleLabel: "Densité de Particules:"
+            },
+            de: {
+                title: "Galaxy Einstellungen",
+                themeLabel: "Thema:",
+                languageLabel: "Sprache:",
+                particleLabel: "Teilchendichte:"
+            },
+            jp: {
+                title: "ギャラクシー設定",
+                themeLabel: "テーマ:",
+                languageLabel: "言語:",
+                particleLabel: "粒子密度:"
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSettings();
+            resetIdleTimer();
+            particlesJS.load('particles-js', 'particles.json', function() {
+                console.log('callback - particles.js config loaded');
+            });
+        });
+
+        document.addEventListener('mousemove', resetIdleTimer);
+        document.addEventListener('keydown', resetIdleTimer);
+
+        function loadProfilePicture() {
+            const profile = JSON.parse(localStorage.getItem('userProfile'));
+            if (profile && profile.avatar) {
+                document.getElementById('profileIcon').src = profile.avatar;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProfilePicture();
+        });
+
+        function startTransition(event) {
+            event.preventDefault();
+            document.body.classList.add('hide');
+            setTimeout(() => {
+                window.location.href = event.target.closest('a').href;
+            }, 1000);
+        }
+
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.slide-in-right').forEach(element => {
+                element.classList.remove('slide-in-right');
+            });
+        });
+
+        function promptPassword() {
+    const password = prompt('Please enter the password:');
+    const correctPassword = 'cosmic123'; // Change this to your desired password
+
+    if (password === correctPassword) {
+          localStorage.setItem('quest3', 'true');
+    } else {
+        alert('Incorrect password. Please try again.');
+    }
+}
+
+   </script>
+</body>
+</html>
+
