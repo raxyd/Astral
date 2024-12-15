@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DISCORD</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="imgs/logo/discord.png" type="image/png">
+</head>
+<body>
+    <div id="particles-js"></div>
+        <iframe src="https://discord.com/widget?id=1307112171750162463&theme=dark" width="1890" height="930" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    </div>
+
+    <script src="js/weeklyChallenges.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/dynamicText.js"></script>
+    <script src="js/quests.js"></script>
+    <script>
+        function applySavedTheme() {
+            const theme = localStorage.getItem('theme') || 'default';
+            document.body.className = theme + "-theme";
+            
+            document.querySelectorAll('.rounded-button').forEach(button => {
+                button.className = 'rounded-button ' + theme + '-theme';
+            });
+            document.querySelectorAll('input[type="range"]').forEach(range => {
+                range.className = theme + '-theme';
+            });
+            document.querySelectorAll('select').forEach(select => {
+                select.className = theme + '-theme';
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', applySavedTheme);
+    </script> 
+</body>
+</html>

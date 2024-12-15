@@ -18,14 +18,6 @@
             <label for="quest2">Play Basket Random</label>
         </div>
         <div class="quest-item">
-            <input type="checkbox" id="quest3" disabled>
-            <label for="quest3">Guess the Password</label>
-        </div>
-        <div class="quest-item">
-            <input type="checkbox" id="quest3141592653" disabled>
-            <label for="quest3141592653">Guess the Password 2</label>
-        </div>
-        <div class="quest-item">
             <input type="checkbox" id="quest4" disabled>
             <label for="quest4">Play Astray</label>
         </div>
@@ -45,6 +37,10 @@
             <input type="checkbox" id="quest8" disabled>
             <label for="quest8">Play Doge 2048</label>
         </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest3" disabled>
+            <label for="quest3">Guess the Password</label>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/app.js"></script>
@@ -61,7 +57,7 @@
             const quest6 = document.getElementById('quest6').checked;
             const quest7 = document.getElementById('quest7').checked;
             const quest8 = document.getElementById('quest8').checked;
-            const quest3141592653 = document.getElementById('quest3141592653').checked;
+            const quest9 = document.getElementById('quest9').checked;
             localStorage.setItem('quest1', quest1);
             localStorage.setItem('quest2', quest2);
             localStorage.setItem('quest3', quest3);
@@ -70,7 +66,7 @@
             localStorage.setItem('quest6', quest6);
             localStorage.setItem('quest7', quest7);
             localStorage.setItem('quest8', quest8);
-            localStorage.setItem('quest3141592653', quest3141592653);
+            localStorage.setItem('quest9', quest9);
 
         }
 
@@ -84,7 +80,7 @@
             const quest6 = localStorage.getItem('quest6') === 'true';
             const quest7 = localStorage.getItem('quest7') === 'true';
             const quest8 = localStorage.getItem('quest8') === 'true';
-            const quest3141592653 = localStorage.getItem('quest3141592653') === 'true';
+            const quest9 = localStorage.getItem('quest9') === 'true';
             document.getElementById('quest1').checked = quest1;
             document.getElementById('quest2').checked = quest2;
             document.getElementById('quest3').checked = quest3;
@@ -93,7 +89,7 @@
             document.getElementById('quest6').checked = quest6;
             document.getElementById('quest7').checked = quest7;
             document.getElementById('quest8').checked = quest8;
-            document.getElementById('quest3141592653').checked = quest3141592653;
+            document.getElementById('quest9').checked = quest9;
         }
 
         function checkQuestsByPath() {
@@ -103,10 +99,10 @@
             } else if (path.includes('g/basket-random/basket-random-main/index.html')) {
                 document.getElementById('quest2').checked = true;
             }
-            saveQuests(); // Save the checked state to local storage
+            saveQuests();
         }
 
-        // Load and check quests on page load
+
         window.onload = function() {
             loadQuests();
             checkQuestsByPath();
@@ -133,191 +129,5 @@
     <div id="particles-js" class="slide-in-right"></div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/app.js"></script>
-    <script>
-        function loadSettings() {
-            document.body.className = theme;
-            const elements = document.querySelectorAll('[data-translate]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-translate');
-                el.textContent = translations[language][key];
-            });
-
-            particlesJS("particles-js", {
-                "particles": {
-                    "number": {
-                        "value": particleDensity,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "size": {
-                        "value": 1.5,
-                        "random": false
-                    },
-                    "color": {
-                        "value": "#ffffff"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        },
-                        "polygon": {
-                            "nb_sides": 5
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": false
-                    },
-                    "line_linked": {
-                        "enable": false,
-                        "distance": 150,
-                        "color": "#ffffff",
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 2,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false,
-                        "attract": {
-                            "enable": false,
-                            "rotateX": 600,
-                            "rotateY": 1200
-                        }
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": {
-                            "distance": 140,
-                            "line_linked": {
-                                "opacity": 1
-                            }
-                        },
-                        "bubble": {
-                            "distance": 400,
-                            "size": 40,
-                            "duration": 2,
-                            "opacity": 8,
-                            "speed": 3
-                        },
-                        "repulse": {
-                            "distance": 200,
-                            "duration": 0.4
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        },
-                        "remove": {
-                            "particles_nb": 2
-                        }
-                    }
-                },
-                "retina_detect": true
-            });
-        }
-
-        const translations = {
-            en: {
-                title: "Galaxy Settings",
-                themeLabel: "Theme:",
-                languageLabel: "Language:",
-                particleLabel: "Particle Density:"
-            },
-            es: {
-                title: "Configuración de Galaxy",
-                themeLabel: "Tema:",
-                languageLabel: "Idioma:",
-                particleLabel: "Densidad de Partículas:"
-            },
-            fr: {
-                title: "Paramètres de Galaxy",
-                themeLabel: "Thème:",
-                languageLabel: "Langue:",
-                particleLabel: "Densité de Particules:"
-            },
-            de: {
-                title: "Galaxy Einstellungen",
-                themeLabel: "Thema:",
-                languageLabel: "Sprache:",
-                particleLabel: "Teilchendichte:"
-            },
-            jp: {
-                title: "ギャラクシー設定",
-                themeLabel: "テーマ:",
-                languageLabel: "言語:",
-                particleLabel: "粒子密度:"
-            }
-        };
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadSettings();
-            resetIdleTimer();
-            particlesJS.load('particles-js', 'particles.json', function() {
-                console.log('callback - particles.js config loaded');
-            });
-        });
-
-        document.addEventListener('mousemove', resetIdleTimer);
-        document.addEventListener('keydown', resetIdleTimer);
-
-        function loadProfilePicture() {
-            const profile = JSON.parse(localStorage.getItem('userProfile'));
-            if (profile && profile.avatar) {
-                document.getElementById('profileIcon').src = profile.avatar;
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadProfilePicture();
-        });
-
-        function startTransition(event) {
-            event.preventDefault();
-            document.body.classList.add('hide');
-            setTimeout(() => {
-                window.location.href = event.target.closest('a').href;
-            }, 1000);
-        }
-
-        window.addEventListener('load', () => {
-            document.querySelectorAll('.slide-in-right').forEach(element => {
-                element.classList.remove('slide-in-right');
-            });
-        });
-
-        function promptPassword() {
-    const password = prompt('Please enter the password:');
-    const correctPassword = 'cosmic123'; // Change this to your desired password
-
-    if (password === correctPassword) {
-          localStorage.setItem('quest3', 'true');
-    } else {
-        alert('Incorrect password. Please try again.');
-    }
-}
-
-   </script>
 </body>
 </html>
-

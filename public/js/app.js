@@ -46,7 +46,7 @@ particlesJS('particles-js', {
             }
         },
         line_linked: {
-            enable: false, // This disables the connections
+            enable: false,
             distance: 150,
             color: '#ffffff',
             opacity: 0.4,

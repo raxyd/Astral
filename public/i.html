@@ -20,7 +20,7 @@
         }
         .slide-in-right {
             transform: translateX(-100%);
-            animation: slide-in 1s forwards;
+            animation: slide-in 3s forwards;
         }
         @keyframes slide-in {
             to {
@@ -77,7 +77,7 @@
     <div class="button-container slide-in-right">
         <a href="/g" onclick="startTransition(event)"><button class="rounded-button4">Games *✧･ﾟ</button></a>
         <a href="/s" onclick="startTransition(event)"><button class="rounded-button4">Settings ⚙</button></a>
-        <a href="/q" onclick="startTransition(event)"><button class="rounded-button4">Quests ₊˚ʚ</button></a>
+        <a href="/q" onclick="startTransition(event)"><button class="rounded-button4">Quests ʚ⁺˖</button></a>
         <a href="https://discord.gg/ZTVCJcKdvp" onclick="startTransition(event)"><button class="rounded-button4">Discord ⋄</button></a>
     </div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -258,42 +258,22 @@
         });
 
 
-function promptPassword() {
-const password = prompt('Please enter the password:');
-const hashedPassword = simpleHash(password);
-const correctHash = '1395277'; // Hashed value of 'cosmic123'
+        function promptPassword() {
+            const password = prompt('Please enter the password:');
+            const correctPassword = 'underworld';
 
-if (hashedPassword === correctHash) {
-    localStorage.setItem('quest3', 'true');
-} else {
-    alert('Incorrect password. Please try again.');
-}
-
-
-function promptPassword2() {
-const password = prompt('Please enter the password:');
-const hashedPassword = simpleHash(password);
-const correctHash = '1925'; // Hashed value of '1925'
-
-if (hashedPassword === correctHash) {
-    localStorage.setItem('quest3141592653', 'true');
-} else {
-    alert('Incorrect password. Please try again.');
-}
+            if (password === correctPassword) {
+                localStorage.setItem('quest3', 'true');
+                saveQuests();
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        }
 
 
-function simpleHash(str) {
-let hash = 0;
-for (let i = 0; i < str.length; i++) {
-    const char = str.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash = hash & hash; // Convert to 32-bit integer
-}
-return Math.abs(hash).toString();
-}
-   </script>
+</script>
 
     
-    <div class="version-text">Version 2.0</div>
+<div class="version-text">Version 2.0</div>
 </body>
 </html>
