@@ -257,28 +257,40 @@
             });
         });
 
-        function promptPassword() {
-    const password = prompt('Please enter the password:');
-    const correctPassword = 'cosmic123'; // Change this to your desired password
 
-    if (password === correctPassword) {
-          localStorage.setItem('quest3', 'true');
-    } else {
-        alert('Incorrect password. Please try again.');
-    }
+function promptPassword() {
+const password = prompt('Please enter the password:');
+const hashedPassword = simpleHash(password);
+const correctHash = '1395277'; // Hashed value of 'cosmic123'
+
+if (hashedPassword === correctHash) {
+    localStorage.setItem('quest3', 'true');
+} else {
+    alert('Incorrect password. Please try again.');
 }
+
 
 function promptPassword2() {
-    const password = prompt('Please enter the password:');
-    const correctPassword = '1925'; // Change this to your desired password
+const password = prompt('Please enter the password:');
+const hashedPassword = simpleHash(password);
+const correctHash = '1925'; // Hashed value of '1925'
 
-    if (password === correctPassword) {
-          localStorage.setItem('quest3141592653', 'true');
-    } else {
-        alert('Incorrect password. Please try again.');
-    }
+if (hashedPassword === correctHash) {
+    localStorage.setItem('quest3141592653', 'true');
+} else {
+    alert('Incorrect password. Please try again.');
 }
 
+
+function simpleHash(str) {
+let hash = 0;
+for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash; // Convert to 32-bit integer
+}
+return Math.abs(hash).toString();
+}
    </script>
 
     

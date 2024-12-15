@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>All Quests</h1>
+            </div>
     <div class="quest-container">
         <div class="quest-item">
             <input type="checkbox" id="quest1" disabled>
@@ -50,100 +51,50 @@
     <script src="js/dynamicText.js"></script>
     <script src="password.js"></script>
     <script>
-        // Utility function to set cookies
-        function setCookie(name, value, days) {
-            const d = new Date();
-            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-            const expires = "expires=" + d.toUTCString();
-            document.cookie = name + "=" + value + ";" + expires + ";path=/";
-        }
-
-        // Utility function to get cookies
-        function getCookie(name) {
-            const nameEQ = name + "=";
-            const ca = document.cookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
-        }
-
-        // Simple Base64 encoding and decoding
-        function encode(value) {
-            return btoa(unescape(encodeURIComponent(value)));
-        }
-
-        function decode(value) {
-            return decodeURIComponent(escape(atob(value)));
-        }
 
         function saveQuests() {
-            const quests = {
-                quest1: document.getElementById('quest1').checked,
-                quest2: document.getElementById('quest2').checked,
-                quest3: document.getElementById('quest3').checked,
-                quest4: document.getElementById('quest4').checked,
-                quest5: document.getElementById('quest5').checked,
-                quest6: document.getElementById('quest6').checked,
-                quest7: document.getElementById('quest7').checked,
-                quest8: document.getElementById('quest8').checked,
-                quest3141592653: document.getElementById('quest3141592653').checked
-            };
+            const quest1 = document.getElementById('quest1').checked;
+            const quest2 = document.getElementById('quest2').checked;
+            const quest3 = document.getElementById('quest3').checked;
+            const quest4 = document.getElementById('quest4').checked;
+            const quest5 = document.getElementById('quest5').checked;
+            const quest6 = document.getElementById('quest6').checked;
+            const quest7 = document.getElementById('quest7').checked;
+            const quest8 = document.getElementById('quest8').checked;
+            const quest3141592653 = document.getElementById('quest3141592653').checked;
+            localStorage.setItem('quest1', quest1);
+            localStorage.setItem('quest2', quest2);
+            localStorage.setItem('quest3', quest3);
+            localStorage.setItem('quest4', quest4);
+            localStorage.setItem('quest5', quest5);
+            localStorage.setItem('quest6', quest6);
+            localStorage.setItem('quest7', quest7);
+            localStorage.setItem('quest8', quest8);
+            localStorage.setItem('quest3141592653', quest3141592653);
 
-            const encryptedQuests = encode(JSON.stringify(quests));
-            setCookie('quests', encryptedQuests, 365); // Save the encrypted string as a cookie
         }
+
 
         function loadQuests() {
-            const encryptedQuests = getCookie('quests');
-            if (encryptedQuests) {
-                const quests = JSON.parse(decode(encryptedQuests));
-
-                document.getElementById('quest1').checked = quests.quest1;
-                document.getElementById('quest2').checked = quests.quest2;
-                document.getElementById('quest3').checked = quests.quest3;
-                document.getElementById('quest4').checked = quests.quest4;
-                document.getElementById('quest5').checked = quests.quest5;
-                document.getElementById('quest6').checked = quests.quest6;
-                document.getElementById('quest7').checked = quests.quest7;
-                document.getElementById('quest8').checked = quests.quest8;
-                document.getElementById('quest3141592653').checked = quests.quest3141592653;
-            }
+            const quest1 = localStorage.getItem('quest1') === 'true';
+            const quest2 = localStorage.getItem('quest2') === 'true';
+            const quest3 = localStorage.getItem('quest3') === 'true';
+            const quest4 = localStorage.getItem('quest4') === 'true';
+            const quest5 = localStorage.getItem('quest5') === 'true';
+            const quest6 = localStorage.getItem('quest6') === 'true';
+            const quest7 = localStorage.getItem('quest7') === 'true';
+            const quest8 = localStorage.getItem('quest8') === 'true';
+            const quest3141592653 = localStorage.getItem('quest3141592653') === 'true';
+            document.getElementById('quest1').checked = quest1;
+            document.getElementById('quest2').checked = quest2;
+            document.getElementById('quest3').checked = quest3;
+            document.getElementById('quest4').checked = quest4;
+            document.getElementById('quest5').checked = quest5;
+            document.getElementById('quest6').checked = quest6;
+            document.getElementById('quest7').checked = quest7;
+            document.getElementById('quest8').checked = quest8;
+            document.getElementById('quest3141592653').checked = quest3141592653;
         }
-
-        function checkQuestsByPath() {
-            const path = window.location.pathname;
-            if (path.includes('g/basketball-stars/basketball-stars-main/index.html')) {
-                document.getElementById('quest1').checked = true;
-            } else if (path.includes('g/basket-random/basket-random-main/index.html')) {
-                document.getElementById('quest2').checked = true;
-            }
-            saveQuests(); // Save the checked state to cookies
-        }
-
-        // Load and check quests on page load
-        window.onload = function() {
-            loadQuests();
-            checkQuestsByPath();
-        }
-
-        function promptPassword() {
-            const password = prompt('Please enter the password:');
-            const correctPassword = 'cosmic123'; // Change this to your desired password
-
-            if (password === correctPassword) {
-                document.getElementById('quest3').checked = true;
-                saveQuests();
-            } else {
-                alert('Incorrect password. Please try again.');
-            }
-        }
-    </script>
-</body>
-</html>
-<script>
 
         function checkQuestsByPath() {
             const path = window.location.pathname;
@@ -369,3 +320,4 @@
    </script>
 </body>
 </html>
+
