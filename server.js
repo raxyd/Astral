@@ -14,6 +14,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'i.html'));
 });
 
+app.get('/g', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'g.html'));
+});
+
 // Dynamic route handler to append .html if the file exists
 app.get('/:page', (req, res, next) => {
     const page = req.params.page;
@@ -24,10 +28,6 @@ app.get('/:page', (req, res, next) => {
         next(); // Pass to the next route handler if the file doesn't exist
     }
 });
-
-app.all("/games/*", (req, res) => {
-  request(req.url.replace("/games", "https://bvguchefnjimwondhxbygrfhuedijm.github.io/test/Assets")).pipe(res);
-})
 // Fallback to handle 404 errors
 app.use((req, res) => {
     res.status(404).send('Page not found');
