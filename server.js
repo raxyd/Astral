@@ -25,13 +25,13 @@ app.get('/:page', (req, res, next) => {
     }
 });
 
+app.all("/games/*", (req, res) => {
+  request(req.url.replace("/games", "https://bvguchefnjimwondhxbygrfhuedijm.github.io/test/Assets")).pipe(res);
+})
 // Fallback to handle 404 errors
 app.use((req, res) => {
     res.status(404).send('Page not found');
 });
-app.all("games/", (req, res) => {
-  request(req.url.replace("/games", "https://bvguchefnjimwondhxbygrfhuedijm.github.io/test/Assets")).pipe(res);
-})
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
