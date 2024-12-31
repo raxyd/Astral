@@ -1,4 +1,4 @@
-const words = ["Stellar.", "the Best Website Ever.", "the Haven for Unblocked Games."];
+const words = ["Astral.", "the Best Website Ever.", "the Haven for Unblocked Games."];
 let i = 0;
 let j = 0;
 let currentWord = "";
