@@ -1175,7 +1175,7 @@ button:hover {
 .quest-container {
     background-color: #ffffff00;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 50px;
     margin: 20px 0;
     width: 80%;
     max-width: 600px;
@@ -1197,9 +1197,9 @@ button:hover {
     align-items: center;
     margin: 10px 0;
     padding: 10px;
-    background-color: #75757569;
+    background-color: linear-gradient(135deg, #2727272f, #0000002f);
     border-color: #000000;
-    border-radius: 15px;
+    border-radius: 50px;
     transition: background-color 0.3s ease;
     box-shadow: 0 4px 8px #0000004d;
 }
