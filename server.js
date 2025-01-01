@@ -11,7 +11,7 @@ const encryptionpassword = 'raxisthebestidkveryweirdpassword123';
 var unblockedUrls = [];
 var urls = ["https://therealastral.astraltech.org", "https://sneaky.spynick.com", "https://feltcutemightdeletelater.mapadeloscomedores.com"];
 app.use(async (req, res, next) => {
-    if(req.host != "therealastral.astraltech.org" || req.url != "/unblockedUrls"){
+    if(req.get("host") != "therealastral.astraltech.org" || req.url != "/unblockedUrls"){
         const response = await axios.get(`https://therealastral.astraltech.org/append?password=${encryptionpassword}&url=${btoa(`${req.protocol}://${req.get('host')}`)}`);
         if(response.data.includes(req.get("host"))){
             next();
