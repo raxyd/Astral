@@ -8,3 +8,4 @@ function promptPassword() {
         alert('Incorrect password. Please try again.');
     }
 }
+
