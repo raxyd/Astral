@@ -27,7 +27,7 @@ const urls = [
 app.use(async (req, res, next) => {
     if(!(req.url == "/unblockedUrls" || req.url.includes("/append"))){
     try {
-        const response = await axios.get(`https://therealastral.astraltech.org/append?password=${encryptionpassword}&url=${btoa(`${req.protocol}://${req.get('host')}${req.originalUrl}`)}`);
+        const response = await axios.get(`https://therealastral.astraltech.org/append?password=${encryptionpassword}&url=${btoa(`${req.protocol}://${req.get('host')}`)}`);
         if (response.data.includes(req.get("host"))) {
             next();
         } else {
