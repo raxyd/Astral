@@ -2,19 +2,22 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const axios = require("axios");
+const app = express();
+const port = 3000;
 const request = require("request");
 const WebSocket = require('ws');
 const http = require('http');
-const app = express();
-const port = 3000;
 var unblockedUrls = [];
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'i.html'));
 });
 app.get('/unblockedUrls', async (req, res) => {
-    if(checkIfBlocked(`${req.protocol}://${req.get('host')}${req.originalUrl}`)){
-        unblockedUrls.push(`${req.protocol}://${req.get('host')}${req.originalUrl}`);
+    var url = `${req.protocol}://${req.get('host')}${req.originalUrl}`
+    if(checkIfBlocked(url)){
+        if(!unblockedUrls.includes(url)) unblockedUrls.push(url);
+    } else if (unblockedUrls.includes(url)){
+        unblockedUrls = unblockedUrls.filter(item => item !== url);
     }
     res.send(unblockedUrls.join("\n"));
 })
