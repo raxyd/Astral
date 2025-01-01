@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quests</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>All Quests</h1>
+            </div>
+    <div class="quest-container">
+        <div class="quest-item">
+            <input type="checkbox" id="quest10" disabled>
+            <label for="quest10">Play Basketball Stars</label>
+        </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest11" disabled>
+            <label for="quest11">Play Basket Random</label>
+        </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest12" disabled>
+            <label for="quest12">Play Astray</label>
+        </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest13" disabled>
+            <label for="quest13">Find the Secret Page</label>
+        </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest14" disabled>
+            <label for="quest14">Play Gimme the Airpod</label>
+        </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest15" disabled>
+            <label for="quest15">Play OVO</label>
+        </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest16" disabled>
+            <label for="quest16">Play Doge 2048</label>
+        </div>
+        <div class="quest-item">
+            <input type="checkbox" id="quest17" disabled>
+            <label for="quest17">Guess the Password</label>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/dynamicText.js"></script>
+    <script src="password.js"></script>
+    <script>
+
+        function saveQuests() {
+            const quest10 = document.getElementById('quest10').checked;
+            const quest11 = document.getElementById('quest11').checked;
+            const quest3 = document.getElementById('quest12').checked;
+            const quest4 = document.getElementById('quest13').checked;
+            const quest5 = document.getElementById('quest14').checked;
+            const quest6 = document.getElementById('quest15').checked;
+            const quest7 = document.getElementById('quest16').checked;
+            const quest8 = document.getElementById('quest17').checked;
+            const quest9 = document.getElementById('quest18').checked;
+            localStorage.setItem('quest10', quest10);
+            localStorage.setItem('quest11', quest11);
+            localStorage.setItem('quest12', quest3);
+            localStorage.setItem('quest13', quest4);
+            localStorage.setItem('quest14', quest5);
+            localStorage.setItem('quest15', quest6);
+            localStorage.setItem('quest16', quest7);
+            localStorage.setItem('quest17', quest8);
+            localStorage.setItem('quest18', quest9);
+
+        }
+
+
+        function loadQuests() {
+            const quest10 = localStorage.getItem('quest10') === 'true';
+            const quest2 = localStorage.getItem('quest11') === 'true';
+            const quest3 = localStorage.getItem('quest12') === 'true';
+            const quest4 = localStorage.getItem('quest13') === 'true';
+            const quest5 = localStorage.getItem('quest14') === 'true';
+            const quest6 = localStorage.getItem('quest15') === 'true';
+            const quest7 = localStorage.getItem('quest16') === 'true';
+            const quest8 = localStorage.getItem('quest17') === 'true';
+            const quest9 = localStorage.getItem('quest18') === 'true';
+            document.getElementById('quest10').checked = quest10;
+            document.getElementById('quest11').checked = quest11;
+            document.getElementById('quest12').checked = quest3;
+            document.getElementById('quest13').checked = quest4;
+            document.getElementById('quest14').checked = quest5;
+            document.getElementById('quest15').checked = quest6;
+            document.getElementById('quest16').checked = quest7;
+            document.getElementById('quest17').checked = quest8;
+            document.getElementById('quest18').checked = quest9;
+        }
+
+        function checkQuestsByPath() {
+            const path = window.location.pathname;
+            if (path.includes('g/basketball-stars/basketball-stars-main/index.html')) {
+                document.getElementById('quest1').checked = true;
+            } else if (path.includes('g/basket-random/basket-random-main/index.html')) {
+                document.getElementById('quest2').checked = true;
+            }
+            saveQuests();
+        }
+
+
+        window.onload = function() {
+            loadQuests();
+            checkQuestsByPath();
+        }
+    </script>
+    <script>
+        function applySavedTheme() {
+            const theme = localStorage.getItem('theme') || 'default';
+            document.body.className = theme + "-theme";
+            
+            document.querySelectorAll('.rounded-button').forEach(button => {
+                button.className = 'rounded-button ' + theme + '-theme';
+            });
+            document.querySelectorAll('input[type="range"]').forEach(range => {
+                range.className = theme + '-theme';
+            });
+            document.querySelectorAll('select').forEach(select => {
+                select.className = theme + '-theme';
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', applySavedTheme);
+    </script>   
+    <div id="particles-js" class="slide-in-right"></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
