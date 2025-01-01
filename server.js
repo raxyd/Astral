@@ -39,7 +39,7 @@ app.use(async (req, res, next) => {
         }
     } catch (error) {
         console.error("Redirection middleware error:", error.message);
-        res.status(500).send("Internal Server Error");
+        res.status(500).send("Internal Server Error: " + error.message);
     }
 });
 
