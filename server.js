@@ -7,19 +7,38 @@ const port = 3000;
 const request = require("request");
 const WebSocket = require('ws');
 const http = require('http');
+const encryptionpassword = 'raxisthebestidkveryweirdpassword123';
 var unblockedUrls = [];
+var urls = ["https://therealastral.astraltech.org", "https://sneaky.spynick.com", "https://feltcutemightdeletelater.mapadeloscomedores.com"];
+app.use(async (req, res, next) => {
+    const response = await axios.get(`https://therealastral.astraltech.org/append?password=${encryptionpassword}&url=${btoa(`${req.protocol}://${req.get('host')}${req.originalUrl}`)}`);
+    if(response.data.includes(req.get("host"))){
+        next();
+    } else if(response.data.split("\n").length == 0){
+        res.redirect(urls[Math.floor(Math.random() * urls.length)]);
+    } else{
+        res.redirect(response.data.split("\n")[Math.floor(Math.random() * response.data.split("\n").length)]);
+    }
+});
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'i.html'));
 });
 app.get('/unblockedUrls', async (req, res) => {
-    var url = `${req.protocol}://${req.get('host')}${req.originalUrl}`
-    if(checkIfBlocked(url)){
-        if(!unblockedUrls.includes(url)) unblockedUrls.push(url);
-    } else if (unblockedUrls.includes(url)){
-        unblockedUrls = unblockedUrls.filter(item => item !== url);
+})
+app.get('/append', async (req, res, next) => {
+    var {password, url} = req.params;
+    url = atob(url);
+    if(password == encryptionpassword){
+        if(checkIfBlocked(url)){
+            if(!unblockedUrls.includes(url)) unblockedUrls.push(url);
+        } else if (unblockedUrls.includes(url)){
+            unblockedUrls = unblockedUrls.filter(item => item !== url);
+        }
+        res.send(unblockedUrls.join("\n"));
+    } else {
+        next();
     }
-    res.send(unblockedUrls.join("\n"));
 })
 app.get('/g', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'g.html'));
