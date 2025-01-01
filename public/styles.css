@@ -224,7 +224,7 @@ input[type="text"]::placeholder {
 
 .games-container {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 20px;
     padding: 20px;
     width: 80%; 
@@ -233,30 +233,25 @@ input[type="text"]::placeholder {
     height: 100vh;
     position: relative;
     scroll-snap-type: y mandatory;
+    align-items: center;
 }
 
-
-.games2-container {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 20px;
-    padding: 20px;
-    width: 80%; 
-    height: 100%;
-    background-color: #00000000;
-}
 
 .game-button {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.8); /* Slightly darker background */
-    border-radius: 12px; /* Smoother corners */
-    padding: 12px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Add a shadow for depth */
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    background: linear-gradient(145deg, #44444449, #22222249);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 220px;
+    margin: 2.5px;
 }
+
+
 
 .game-button a {
     display: flex;
@@ -264,24 +259,34 @@ input[type="text"]::placeholder {
     align-items: center;
     text-decoration: none;
     width: 100%;
-    height: 150px;
+    height: 170px;
 }
 
 .game-button img {
     width: 100%;
     height: 100%;
-    border-radius: 12px; /* Match the button corners */
+    border-radius: 5px;
     object-fit: cover;
-    transition: filter 0.3s ease; /* Smooth transition for hover effect */
+    transition: filter 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+    transform-style: preserve-3d; /* Preserve 3D transforms */
 }
 
 .game-button:hover {
-    transform: scale(1.1);
-    background-color: rgba(0, 0, 0, 0.9); /* Slightly darker on hover */
+    transform: rotateY(10deg) rotateX(10deg) scale(1.1); /* Apply a 3D tilt and scale on hover */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.7);
 }
 
 .game-button:hover img {
-    filter: brightness(0.8); /* Dim the image a bit on hover */
+    filter: brightness(0.85); 
+    transform: rotate(1deg); 
+}
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center;
 }
 
 
@@ -901,7 +906,6 @@ select.autumn-theme:hover {
     background-color: #545736;
 }
 
-/* Base styles from the given template */
 body {
     margin: 0;
     padding: 0;
