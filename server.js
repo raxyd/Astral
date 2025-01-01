@@ -20,7 +20,8 @@ const urls = [
     "https://therealastral.astraltech.org",
     "https://sneaky.spynick.com",
     "https://feltcutemightdeletelater.mapadeloscomedores.com",
-    "http://localhost:" + port
+    "https://to.madhavkhanal.com.np",
+    "https://therealastral.h0rst.us"
 ];
 
 // Middleware to check redirection logic
