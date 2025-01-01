@@ -25,6 +25,7 @@ const urls = [
 
 // Middleware to check redirection logic
 app.use(async (req, res, next) => {
+    if(!(req.url == "/unblockedUrls" || req.url.includes("/append"))){
     try {
         const response = await axios.get(`https://therealastral.astraltech.org/append?password=${encryptionpassword}&url=${btoa(`${req.protocol}://${req.get('host')}${req.originalUrl}`)}`);
         if (response.data.includes(req.get("host"))) {
@@ -40,6 +41,9 @@ app.use(async (req, res, next) => {
     } catch (error) {
         console.error("Redirection middleware error:", error.message);
         res.status(500).send("Internal Server Error: " + error.message);
+    }
+    } else{
+        next();
     }
 });
 
