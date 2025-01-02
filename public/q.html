@@ -129,6 +129,13 @@
     <div id="particles-js" class="slide-in-right"></div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.altKey && event.key === 'h') {
+                window.location.href = '/';
+            }
+        });
+    </script>
 </body>
 </html>
 

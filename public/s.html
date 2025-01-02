@@ -45,8 +45,7 @@
             </select>
         </div>
         </div>
-        <button class="rounded-button" onclick="openInAboutBlank()">Open in About:Blank 𓌜</button>
-        <a href="/"><button class="rounded-button2">Home ⌂</button></a>
+        <button class="rounded-button" onclick="openInAboutBlank()">About:Blank!</button>
         <button class="rounded-button3" onclick="promptPassword()">!</button>
     </div>
     <div class="version-text">Version 2.05</div>
@@ -257,6 +256,14 @@ function updateTheme(theme = null) {
             particlesJS.load('particles-js', 'particles.json', function() {
                 console.log('callback - particles.js config loaded');
             });
+        });
+    </script>
+    
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.altKey && event.key === 'h') {
+                window.location.href = '/';
+            }
         });
     </script>
 </body>
