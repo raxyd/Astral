@@ -272,14 +272,10 @@ input[type="text"]::placeholder {
 }
 
 .game-button:hover {
-    transform: rotateY(10deg) rotateX(10deg) scale(1.1); /* Apply a 3D tilt and scale on hover */
+    transform: scale(1.1); /* Apply a 3D tilt and scale on hover */
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.7);
 }
 
-.game-button:hover img {
-    filter: brightness(0.85); 
-    transform: rotate(1deg); 
-}
 
 
 .container {
@@ -953,6 +949,13 @@ h11 {
     animation: glow 1.5s ease-in-out infinite alternate;
     text-shadow: 0 0 7px #ffffff, 0 0 14px #ffffff, 0 0 21px #ffffff, 0 0 28px #ffffff, 0 0 35px #ffffff;
     -webkit-text-fill-color: #ffffff;
+}
+
+h121 {
+    font-size: 3em;
+    animation: glow 1.5s ease-in-out infinite alternate;
+    text-shadow: 0 0 7px #00000000, 0 0 14px #00000000, 0 0 21px #00000000, 0 0 28px #00000000, 0 0 35px #00000000;
+    -webkit-text-fill-color: #00000000;
 }
 
 h2 {
