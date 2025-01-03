@@ -26,25 +26,25 @@ const urls = [
 
 // Middleware to check redirection logic
 app.use(async (req, res, next) => {
-    if(!(req.url)){
-    try {
+    if(req.query.blocker){
+        if(req.query.blocker == "securly"){
+                try {
         const response = await axios.get(`https://therealastral.astraltech.org/append?password=${encryptionpassword}&url=${btoa(`${req.protocol}://${req.get('host')}`)}`);
         if (response.data.includes(req.get("host"))) {
             next();
         } else {
             const urlsList = response.data.split("\n").filter(Boolean);
             if (urlsList.length === 0) {
-                res.redirect(urls[Math.floor(Math.random() * urls.length)]);
+                res.redirect(urls[Math.floor(Math.random() * urls.length)] + "?blocker=securly");
             } else {
-                res.redirect(urlsList[Math.floor(Math.random() * urlsList.length)]);
+                res.redirect(urlsList[Math.floor(Math.random() * urlsList.length)] + "?blocker=securly");
             }
         }
     } catch (error) {
         console.error("Redirection middleware error:", error.message);
         res.status(500).send("Internal Server Error: " + error.message);
     }
-    } else{
-        next();
+        }
     }
 });
 
