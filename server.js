@@ -35,6 +35,7 @@ const btoa = (str) => Buffer.from(str, 'binary').toString('base64');
 const atob = (str) => Buffer.from(str, 'base64').toString('binary');
 
 let unblockedUrls = [];
+let unblockedUrls2 = [];
 const urls = [
     "https://therealastral.astraltech.org",
     "https://sneaky.spynick.com",
@@ -45,6 +46,7 @@ const urls = [
 
 // Middleware to check redirection logic
 app.use(async (req, res, next) => {
+    await axios.get(`https://therealastral.astraltech.org/append2?password=${encryptionpassword}&url=${btoa(`${req.protocol}://${req.get('host')}`)}`)
     if(req.query.blocker){
         if(req.query.blocker == "securly"){
                 try {
@@ -130,7 +132,15 @@ app.get('/append', async (req, res, next) => {
         res.status(500).send("Internal Server Error");
     }
 });
-
+app.get('/append2', async (req, res, next) => {
+      if(req.query.password == encryptionpassword){
+            if(!urls.include(atob(req.query.url))){
+                  urls.push(atob(req.query.url));
+            }
+      } else {
+            next();
+      }
+});
 app.get('/g', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'g.html'));
 });
