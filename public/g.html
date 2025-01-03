@@ -8,17 +8,18 @@
     <link rel="icon" href="imgs/logo/logo.png" type="image/png">
 </head>
 <body>
+    <div id="gameCounter" style="position: absolute; top: 10px; left: 10px; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 5px; border-radius: 5px;">
+        Total Games: <span id="gameCount">0</span>
+    </div>
     <div id="particles-js"></div>
-<<<<<<< HEAD
     <h1></h1>
     <h1></h1>
     <h1></h1>
     <h1></h1>
-=======
->>>>>>> parent of 407cb82 (Welcome to Astral.)
     <h1>Games</h1>
     <script src="js/cool.js"></script>
     <a href="/"><button class="rounded-button">Home ⌂</button></a>
+    <input type="text" id="searchInput" placeholder="Search for a game..." onkeyup="searchGames()">
     <div class="games-container" id="gamesContainer">
             <div class="game-button">
                 <a href="stickmansurvival\stickman-survival-main/index.html">
@@ -476,13 +477,13 @@
 });
 
 </script>
+
 <script>
     document.addEventListener('keydown', function(event) {
         if (event.altKey && event.key === 'h') {
             window.location.href = '/';
         }
     });
-<<<<<<< HEAD
 
 
     function searchGames() {
@@ -515,8 +516,77 @@
             }
     }
 
-=======
->>>>>>> parent of 407cb82 (Welcome to Astral.)
+    document.querySelectorAll('.game-button').forEach(button => {
+    button.addEventListener('mousemove', (e) => {
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const deltaX = (x - centerX) / centerX; 
+        const deltaY = (y - centerY) / centerY; 
+        const rotateX = deltaY * 10; 
+        const rotateY = deltaX * 10; 
+
+        button.querySelector('img').style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    button.addEventListener('mouseleave', () => {
+        button.querySelector('img').style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+});
+
+
+
+
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const gamesContainer = document.getElementById('gamesContainer');
+        const games = Array.from(gamesContainer.getElementsByClassName('game-button'));
+        
+        // Update Game Counter
+        const gameCounter = document.getElementById('gameCount');
+        gameCounter.textContent = games.length;
+
+        games.sort((a, b) => {
+            const srcA = a.querySelector('img').getAttribute('src').toLowerCase();
+            const srcB = b.querySelector('img').getAttribute('src').toLowerCase();
+            return srcA.localeCompare(srcB);
+        });
+
+        gamesContainer.innerHTML = '';
+
+        games.forEach(game => gamesContainer.appendChild(game));
+    });
+
+    function searchGames() {
+        const input = document.getElementById('searchInput');
+        const filter = input.value.toLowerCase();
+        const gamesContainer = document.getElementById('gamesContainer');
+        const games = gamesContainer.getElementsByClassName('game-button');
+        let count = 0;
+
+        for (let i = 0; i < games.length; i++) {
+            const game = games[i];
+            const link = game.getElementsByTagName('a')[0];
+            const href = link.getAttribute('href').toLowerCase();
+
+            if (href.includes(filter)) {
+                game.style.display = "";
+                count++;
+            } else {
+                game.style.display = "none";
+            }
+        }
+
+        // Update Game Counter
+        const gameCounter = document.getElementById('gameCount');
+        gameCounter.textContent = count;
+    }
+</script>
+
+
 </body>
 </html>
