@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #7341ffcc, #220081cc);
+    background: linear-gradient(135deg, #7341ffcc, #7341ffcc);
     color: rgb(0, 0, 0);
     font-family: Arial, sans-serif;
     text-align: center;
@@ -224,7 +224,7 @@ input[type="text"]::placeholder {
 
 .games-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     padding: 20px;
     width: 80%; 
@@ -247,7 +247,7 @@ input[type="text"]::placeholder {
     padding: 10px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 340px;
+    width: 260px;
     margin: 2.5px;
 }
 
@@ -479,7 +479,7 @@ input[type="range"]::-moz-range-thumb {
 
 /* green theme */
 body.green-theme {
-    background: linear-gradient(135deg, #50c971, #0c2914);
+    background: linear-gradient(135deg, #50c971, #50c971);
     color: rgb(0, 0, 0);
 }
 
@@ -530,7 +530,7 @@ select.green-theme:hover {
 
 /* blue theme */
 body.blue-theme {
-    background: linear-gradient(135deg, #4f83e4, #111d33);
+    background: linear-gradient(135deg, #4f83e4, #4f83e4);
     color: rgb(0, 0, 0);
 }
 
@@ -593,7 +593,7 @@ select.blue-theme:hover {
 
 /* blood theme */
 body.red-theme {
-    background: linear-gradient(135deg, #e44f4f, #331111);
+    background: linear-gradient(135deg, #e44f4f, #e44f4f);
     color: rgb(0, 0, 0);
 }
 
@@ -644,7 +644,7 @@ select.red-theme:hover {
 
 /* blossom theme */
 body.pink-theme {
-    background: linear-gradient(135deg, #ff9e9e, #573636);
+    background: linear-gradient(135deg, #ff9e9e, #ff9e9e);
     color: rgb(0, 0, 0);
 }
 
@@ -695,7 +695,7 @@ select.pink-theme:hover {
 
 /* DARK theme */
 body.black-theme {
-    background: linear-gradient(135deg, #1f1f1f, #000000);
+    background: linear-gradient(135deg, #1f1f1f, #1f1f1f);
     color: rgb(0, 0, 0);
 }
 
@@ -746,7 +746,7 @@ select.black-theme:hover {
 
 /* white theme */
 body.white-theme {
-    background: linear-gradient(135deg, #575757, #000000);
+    background: linear-gradient(135deg, #575757, #575757);
     color: rgb(0, 0, 0);
 }
 
@@ -798,7 +798,7 @@ select.white-theme:hover {
 
 /* YELLOW theme */
 body.yellow-theme {
-    background: linear-gradient(135deg, #c0bd00, #92902d);
+    background: linear-gradient(135deg, #c0bd00, #c0bd00);
     color: rgb(0, 0, 0);
 }
 
@@ -853,7 +853,7 @@ select.yellow-theme:hover {
 
 /* autumn theme */
 body.autumn-theme {
-    background: linear-gradient(135deg, #c08d00, #815f00);
+    background: linear-gradient(135deg, #c08d00, #c08d00);
     color: rgb(0, 0, 0);
 }
 
@@ -941,18 +941,15 @@ body::-webkit-scrollbar-thumb {
     border: 1px solid #000000;
 }
 
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    pointer-events: none;
-}
-
 h1 {
     font-size: 3em;
+    animation: glow 1.5s ease-in-out infinite alternate;
+    text-shadow: 0 0 7px #ffffff, 0 0 14px #ffffff, 0 0 21px #ffffff, 0 0 28px #ffffff, 0 0 35px #ffffff;
+    -webkit-text-fill-color: #ffffff;
+}
+
+h11 {
+    font-size: 2em;
     animation: glow 1.5s ease-in-out infinite alternate;
     text-shadow: 0 0 7px #ffffff, 0 0 14px #ffffff, 0 0 21px #ffffff, 0 0 28px #ffffff, 0 0 35px #ffffff;
     -webkit-text-fill-color: #ffffff;
@@ -1000,7 +997,7 @@ h2 {
 
 /* Winter Theme */
 body.winter-theme {
-    background: linear-gradient(135deg, #a4d3ff, #475b6e);
+    background: linear-gradient(135deg, #a4d3ff, #a4d3ff);
     color: rgb(0, 0, 0);
 }
 

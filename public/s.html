@@ -28,6 +28,7 @@
     </script>  
     <div id="particles-js"></div>
     <h1 data-translate="title">Settings</h1>
+    <h11>Theme</h11>
     <div class="settings-container">
         <div class="setting">
             <label for="theme-select" data-translate="theme-label">Theme:</label>
@@ -44,10 +45,22 @@
                 <option value="winter">Winter</option>
             </select>
         </div>
+        <h11>Shortcuts</h11>
+        <div class="setting">
+            <label for="modifier-select" data-translate="modifier-label">Modifier Key:</label>
+            <select id="modifier-select" onchange="saveShortcut()">
+                <option value="ctrlKey">Ctrl</option>
+                <option value="altKey">Alt</option>
+            </select>
         </div>
-        <button class="rounded-button" onclick="openInAboutBlank()">About:Blank!</button>
-        <button class="rounded-button3" onclick="promptPassword()">!</button>
+        <div class="setting">
+            <label for="shortcut-key" data-translate="shortcut-label">Shortcut Key:</label>
+            <input type="text" id="shortcut-key" maxlength="1" oninput="saveShortcut()">
+        </div>
     </div>
+    <description>Refresh for changes!</description>
+    <button class="rounded-button" onclick="openInAboutBlank()">About:Blank!</button>
+    <button class="rounded-button3" onclick="promptPassword()">!</button>
     <div class="version-text">Version 2.05</div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/app.js"></script>
@@ -77,32 +90,29 @@
             updateTheme(savedTheme);
         });
 
-function updateTheme(theme = null) {
-    if (!theme) {
-        theme = document.getElementById('theme-select').value;
-    }
+        function saveShortcut() {
+            const modifier = document.getElementById('modifier-select').value;
+            const shortcutKey = document.getElementById('shortcut-key').value;
+            localStorage.setItem('modifier', modifier);
+            localStorage.setItem('shortcutKey', shortcutKey);
+        }
 
-    document.body.style.transition = 'background 0.5s, color 0.5s';
-    document.body.className = theme + "-theme";
-    
-    document.querySelectorAll('.rounded-button').forEach(button => {
-        button.className = 'rounded-button ' + theme + '-theme';
-        button.style.transition = 'background 0.5s, color 0.5s, border-color 0.5s, background-color 0.5s, opacity 0.5s';
-    });
-    document.querySelectorAll('input[type="range"]').forEach(range => {
-        range.className = theme + '-theme';
-        range.style.transition = 'background 0.5s, color 0.5s, border-color 0.5s, background-color 0.5s, opacity 0.5s';
-    });
-    document.querySelectorAll('select').forEach(select => {
-        select.className = theme + '-theme';
-        select.style.transition = 'background 0.5s, color 0.5s, border-color 0.5s, background-color 0.5s, opacity 0.5s';
-    });
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const savedModifier = localStorage.getItem('modifier') || 'altKey';
+            const savedShortcutKey = localStorage.getItem('shortcutKey') || 'h';
+            document.getElementById('modifier-select').value = savedModifier;
+            document.getElementById('shortcut-key').value = savedShortcutKey;
 
-    localStorage.setItem('theme', theme);
-}
+            updateTheme();
+        });
 
-
-
+        document.addEventListener('keydown', function(event) {
+            const modifier = localStorage.getItem('modifier') || 'altKey';
+            const shortcutKey = localStorage.getItem('shortcutKey') || 'h';
+            if (event[modifier] && event.key === shortcutKey) {
+                window.location.href = '/';
+            }
+        });
 
         function updateParticles() {
             const density = document.getElementById('particle-density').value;
@@ -203,41 +213,41 @@ function updateTheme(theme = null) {
         }
 
         function openInAboutBlank() {
-        const siteUrl = window.location.href;
-        const aboutBlankPage = window.open('about:blank', '_blank');
+            const siteUrl = window.location.href;
+            const aboutBlankPage = window.open('about:blank', '_blank');
 
-        aboutBlankPage.document.write(`
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Astral</title>
-                <link rel="icon" href="imgs/logo.png" type="image/png">
-                <style>
-                    body, html {
-                        margin: 0;
-                        padding: 0;
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        background-color: #f0f0f0; /* Adjust as needed */
-                    }
-                    iframe {
-                        width: 100%;
-                        height: 100%;
-                        border: none;
-                    }
-                </style>
-            </head>
-            <body>
-                <iframe src="${siteUrl}" frameborder="0"></iframe>
-            </body>
-            </html>
-        `);
-    }
+            aboutBlankPage.document.write(`
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Astral</title>
+                    <link rel="icon" href="imgs/logo.png" type="image/png">
+                    <style>
+                        body, html {
+                            margin: 0;
+                            padding: 0;
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: #f0f0f0; /* Adjust as needed */
+                        }
+                        iframe {
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <iframe src="${siteUrl}" frameborder="0"></iframe>
+                </body>
+                </html>
+            `);
+        }
 
         function loadSettings() {
             const theme = localStorage.getItem('theme') || 'default';
@@ -256,14 +266,6 @@ function updateTheme(theme = null) {
             particlesJS.load('particles-js', 'particles.json', function() {
                 console.log('callback - particles.js config loaded');
             });
-        });
-    </script>
-    
-    <script>
-        document.addEventListener('keydown', function(event) {
-            if (event.altKey && event.key === 'h') {
-                window.location.href = '/';
-            }
         });
     </script>
 </body>
