@@ -56,6 +56,14 @@ app.get('/g', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'g.html'));
 });
 
+app.get('/s', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 's.html'));
+});
+
+app.get('/q', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'q.html'));
+});
+
 app.get('/unblockedUrls', (req, res) => {
     res.send(unblockedUrls.join("\n"));
 });
