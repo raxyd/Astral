@@ -13,6 +13,10 @@ app.get('/g', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'g.html'));
 });
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'i.html'));
+});
+
 app.get('/:page', (req, res, next) => {
     const page = req.params.page;
     const filePath = path.join(__dirname, 'public', `${page}.html`);
