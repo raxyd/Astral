@@ -31,6 +31,16 @@
           <a class="retry-button">Try again</a>
         </div>
       </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+                    const savedModifier = localStorage.getItem('modifier') || 'altKey';
+                    const savedShortcutKey = localStorage.getItem('shortcutKey') || 'h';
+                    document.getElementById('modifier-select').value = savedModifier;
+                    document.getElementById('shortcut-key').value = savedShortcutKey;
+                    saveShortcut()
+                    updateTheme();
+                });
+                </script>
 
       <div class="grid-container">
         <div class="grid-row">

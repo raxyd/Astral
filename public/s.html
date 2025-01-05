@@ -102,7 +102,7 @@
             const savedShortcutKey = localStorage.getItem('shortcutKey') || 'h';
             document.getElementById('modifier-select').value = savedModifier;
             document.getElementById('shortcut-key').value = savedShortcutKey;
-
+            saveShortcut()
             updateTheme();
         });
 
