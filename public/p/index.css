@@ -53,15 +53,6 @@ h1 {
     -webkit-text-fill-color: #ffffff;
 }
 
-h12 {
-    font-size: 3em;
-    animation: glow 1.5s ease-in-out infinite alternate;
-    text-shadow: 0 0 7px #ffffff, 0 0 14px #ffffff, 0 0 21px #ffffff, 0 0 28px #ffffff, 0 0 35px #ffffff;
-    -webkit-text-fill-color: #ffffff;
-    position: fixed;
-
-}
-
 h2 {
     color: #ffffffcc;
     font-size: 1.025em;
@@ -218,7 +209,7 @@ input[type="text"] {
     padding: 15px 20px;
     font-size: 16px;
     border-radius: 10px;
-    border: 2px solid #00000000;
+    border: 2px solid #000000;
     margin-right: 10px;
     width: 300px;
     max-width: 80%;
@@ -974,13 +965,6 @@ h121 {
     -webkit-text-fill-color: #00000000;
 }
 
-h12111 {
-    font-size: 3em;
-    animation: glow 1.5s ease-in-out infinite alternate;
-    text-shadow: 0 0 7px #00000000, 0 0 14px #00000000, 0 0 21px #00000000, 0 0 28px #00000000, 0 0 35px #00000000;
-    -webkit-text-fill-color: #00000000;
-}
-
 h2 {
     color: #ffffffcc;
     font-size: 1.025em;
@@ -1238,21 +1222,3 @@ button:hover {
     cursor: pointer;
     font-size: 1.1em;
 }
-
-.floating-astronaut {
-    position: absolute;
-    width: 100px; /* Adjust size as needed */
-    animation: spin 20s infinite linear;
-    transition: transform 20s linear, top 20s linear, left 20s linear;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-
-
-
-
-
