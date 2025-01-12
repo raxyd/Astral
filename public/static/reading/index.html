@@ -3,35 +3,13 @@
 
 <html lang="en"><head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astral</title>
+    <title>PROXY</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="imgs/logo/logo.png" type="image/png">
-    <meta property="og:title" content="Astral.">
-    <meta property="og:description" content="Astral!">
-    <meta property="og:image" content="https://cdn.discordapp.com/attachments/1302688793706627153/1308605549826277416/stellar.png?ex=67447c23&is=67432aa3&hm=3cb92708d7a3b197b02fe54da55e1e0119cef40d2318d84ad602d53aff35c205&">
-    <meta property="og:type" content="website">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <script>
-        function applySavedTheme() {
-            const theme = localStorage.getItem('theme') || 'default';
-            document.body.className = theme + "-theme";
-            
-            document.querySelectorAll('.rounded-button').forEach(button => {
-                button.className = 'rounded-button ' + theme + '-theme';
-            });
-            document.querySelectorAll('input[type="range"]').forEach(range => {
-                range.className = theme + '-theme';
-            });
-            document.querySelectorAll('select').forEach(select => {
-                select.className = theme + '-theme';
-            });
-        }
-    
-        document.addEventListener('DOMContentLoaded', applySavedTheme);
-    </script>  
-
         <div id="main">
 <div class="content-wrapper">
             <center><div class="proxy">
@@ -69,5 +47,23 @@ if (encodedUrl) {
 }
     </script>
         </div>
+        <script>
+            function applySavedTheme() {
+                const theme = localStorage.getItem('theme') || 'default';
+                document.body.className = theme + "-theme";
+                
+                document.querySelectorAll('.rounded-button').forEach(button => {
+                    button.className = 'rounded-button ' + theme + '-theme';
+                });
+                document.querySelectorAll('input[type="range"]').forEach(range => {
+                    range.className = theme + '-theme';
+                });
+                document.querySelectorAll('select').forEach(select => {
+                    select.className = theme + '-theme';
+                });
+            }
+        
+            document.addEventListener('DOMContentLoaded', applySavedTheme);
+        </script>  
 </body>
 </html>

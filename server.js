@@ -69,10 +69,13 @@ app.get('/a', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'a.html'));
 });
 
-app.get('/p', (req, res) => {
+app.get('/p/reading', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'p', 'reading', 'index.html'));
 });
 
+app.get('/p', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'p.html'));
+});
 app.get('/404', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', '404.html'));
 });
