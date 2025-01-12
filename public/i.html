@@ -30,6 +30,7 @@
     </style>
 </head>
 <body>
+    
     <script>
         function applySavedTheme() {
             const theme = localStorage.getItem('theme') || 'default';
@@ -51,26 +52,6 @@
     <div id="particles-js" class="slide-in-right"></div>
         <h1 class="slide-in-right">Welcome to <span id="dynamic-text"></span></h1>
         <h2 class="slide-in-right">Made By Rax</h2>
-        <div id="randomMessage" class="slide-in-right"></div>
-        <script>
-            const messages = [
-                "Gen Alpha cooked",
-                "Millennial cooked",
-                "Shoutout to Falconlink bruh",
-                "I got it ou🥁🥁🥁🥁🥁🥁da mud frfr",
-                "Keyton might be a crashout but yall are the reason he is",
-                "Also shoutout to Link Drop for getting me into unblocked games frfr",
-            ];
-
-            function getRandomMessage() {
-                const randomIndex = Math.floor(Math.random() * messages.length);
-                return messages[randomIndex];
-            }
-    
-            window.onload = function() {
-                document.getElementById('randomMessage').textContent = getRandomMessage();
-            };
-        </script>
     </div>
     <a onclick="promptPassword()"><button class="rounded-button3 slide-in-right">!</button></a>
     <a onclick="promptPassword2()"><button class="rounded-button9 slide-in-right">!</button></a>

@@ -65,12 +65,16 @@ app.get('/s', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 's.html'));
 });
 
-app.get('/q', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'q.html'));
+app.get('/a', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'a.html'));
 });
 
 app.get('/p', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'p', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'static', 'index.html'));
+});
+
+app.get('/404', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
 app.get('/unblockedUrls', (req, res) => {
@@ -98,8 +102,12 @@ app.get('/append', async (req, res, next) => {
 });
 
 app.use((req, res) => {
+    res.redirect('/404');
+  });
+  
+  app.get('/404', (req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
-});
+  });
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
