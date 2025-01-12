@@ -70,7 +70,7 @@ app.get('/a', (req, res) => {
 });
 
 app.get('/p', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'static', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'p', 'reading', 'index.html'));
 });
 
 app.get('/404', (req, res) => {
