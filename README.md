@@ -1,4 +1,4 @@
-🌟 Welcome to Astral: The Ultimate Unblocked Games Hub! 🌟
+**🌟** Welcome to Astral: The Ultimate Unblocked Games Hub! 🌟
 
 
 🎮 Dive into a galaxy of endless gaming fun with Astral! Our platform brings you a collection of the best unblocked games, perfect for school, work, or just to unwind. Whether you're into action, puzzle, strategy, or sports games, we’ve got something for everyone! 🎮
