@@ -198,3 +198,16 @@ input[type="text"]::placeholder {
     transform: scale(1.1); /* Apply a 3D tilt and scale on hover */
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.7);
 }
+
+.games-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    width: 80%; 
+    height: 100px;
+    color: #00000000;
+    position: relative;
+    scroll-snap-type: y mandatory;
+    align-items: center;
+}
