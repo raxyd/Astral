@@ -1,11 +1,46 @@
+/* Custom CSS for black theme */
+body {
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  background-color: #000;
+  padding: 20px;
+  text-align: center;
+}
+
+#header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
 #header img {
   width: 20%;
   height: auto;
 }
-#header {
-  padding: 20px;
+
+#content {
   text-align: center;
+  padding: 20px;
+  margin-top: -4%;
 }
+
+#content h1 {
+  font-size: 24px;
+  cursor:pointer;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
 #searchbar {
   text-align: center;
   margin: 20px auto;
@@ -24,6 +59,17 @@
   cursor:cell;
 }
 
+a{
+  text-decoration: none;
+  color:white;
+  width:50px;
+  height:50px;
+  padding-right: 1px;
+  padding-left: 1px;
+  text-align: center;
+  align-self: center;
+}
+
 .form__input::placeholder {
   color: #aaa;
   text-align: center;
@@ -37,50 +83,48 @@
   outline: none;
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
-.light-switch {
-    width: 50px;
-    height: 25px;
-    background-color: #ccc;
-    border-radius: 25px;
-    position: relative;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.light-switch::after {
-    content: '';
-    width: 23px;
-    height: 23px;
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    transition: left 0.3s;
-}
-
-.light-switch.active {
-    background-color: #4caf50;
-}
-
-.light-switch.active::after {
-    left: 26px;
-}
-
-#particles-js {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100vw;
-   height: 100vh;
-   z-index: -1; /* Ensure it's behind all content */
-   pointer-events: none; /* Allow clicks to pass through */
-   background-color: black;
-}
-
-#content {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #99ccff;
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  height:15px;
+  background-color: #000;
+  padding-top: 7.5px;
+  padding-bottom: 10px;
   text-align: center;
-  padding: 20px;
-  margin-top: -4%;
-  position: relative; /* Keeps it above the particles */
-  z-index: 1; /* Ensure it's higher than the particles */
+  color: #fff;
+  font-size: 14px;
+}
+
+#footer p {
+  margin: 0;
+}
+
+.fa {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.fa:hover {
+  color: #aaa;
+}
+
+.game-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(145deg, #44444449, #22222249);
+  border-radius: 0px;
+  padding: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 321px;
+}
