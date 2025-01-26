@@ -15,7 +15,7 @@ const app = express();
 const publicPath = "public"; // if you renamed your directory to something else other than public
 
 app.use(express.static(publicPath));
-app.use("/x/", express.static(uvPath));
+app.use("/&/", express.static(uvPath));
 app.use("/epoxy/", express.static(epoxyPath));
 app.use("/baremux/", express.static(baremuxPath));
 app.use("/baremod/", express.static(bareModulePath));
