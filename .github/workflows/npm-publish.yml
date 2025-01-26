@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 20
       - run: npm install
-      - run: node server.js
+      - run: node astral.js
 
   publish-npm:
     needs: build

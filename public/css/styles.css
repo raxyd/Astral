@@ -1,79 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 body {
-    background: linear-gradient(45deg, #081a31, #010203);
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+  background: linear-gradient(45deg, #081a31, #010203);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  overflow-x: hidden;
 }
 iframe {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    visibility: hidden;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  visibility: hidden;
 }
 header {
-    background: linear-gradient(45deg, #03254c, #061b3b);
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    border-bottom: 2px solid #fff;
-    transition: background 0.5s ease-in-out;
-    position: relative;
-    transform: scale(1.2); 
+  background: linear-gradient(45deg, #081a3185, #01020375);
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  transition: background 0.5s ease-in-out;
+  position: relative;
 }
 h1 {
-    font-size: 3rem;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7), -3px -3px 10px rgba(255, 255, 255, 0.2);
-    border-bottom: 2px solid #fff;
-    padding-bottom: 10px;
-    display: inline-block;
-    position: relative;
-    animation: glitter 3s infinite;
-}
-@keyframes glitter {
-    0% { text-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff, 0 0 40px #00bfff; }
-    100% { text-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff, 0 0 40px #00bfff; }
+  font-size: 5vw;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5vw;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7),
+    -3px -3px 10px rgba(255, 255, 255, 0.2);
+    
+  text-decoration: underline white;
+  text-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff, 0 0 40px #00bfff;
 }
 nav {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
 }
 nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 15px; /* Rounded square corners */
-    transition: background 0.5s ease-in-out, transform 0.3s ease;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 15px; /* Rounded square corners */
 }
 nav a:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-
-
-input[type="text"] {
-    padding: 15px 20px;
-    font-size: 16px;
-    border-radius: 10px;
-    border: 2px solid #00000000;
-    margin-right: 10px;
-    width: 300px;
-    max-width: 80%;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
+input {
+  margin-top: 5vh;
+  padding: 15px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 2px solid #00000000;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  transition-duration: 0.4s;
 }
 
-input[type="text"]::placeholder {
-    color: white;
-    opacity: 0.7;
+input::placeholder {
+  color: white;
+  opacity: 0.7;
 }

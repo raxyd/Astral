@@ -10,5 +10,8 @@
     "request": "^2.88.2",
     "axios": "^1.7.9"
   },
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "start": "node astral.js"
+  }
 }
