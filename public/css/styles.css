@@ -31,15 +31,16 @@ header {
 h1 {
   font-size: 5vw;
   position: relative;
-  margin: 0;
   text-transform: uppercase;
-  letter-spacing: 5vw;
+  letter-spacing: 2vw;
   text-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff, 0 0 40px #00bfff;
+  margin: 0;
+text-align: center;
 }
 h1::after {
     position: absolute;
     content: '';
-    left: 22%;
+    left: 33.5%;
     bottom: 0;
     width: 0;
     height: 1vh;
@@ -51,7 +52,7 @@ h1::after {
       width: 0;
     }
     100% {
-      width: 50vw;
+      width: 30vw;
     }
   }
 
