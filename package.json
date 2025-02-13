@@ -8,6 +8,7 @@
     "@vercel/analytics": "^1.4.1",
     "axios": "^1.7.9",
     "express": "^4.18.2",
+    "react": "^19.0.0",
     "request": "^2.88.2",
     "wisp-server-node": "^1.1.3"
   },

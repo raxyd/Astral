@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astral - Games</title>
+    <title>OCEAN - Games</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="img/logo.png">
 </head>
 <body>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>   
     <div class="sparkle"></div>
     <header>
-        <h1>Astral</h1>
+        <h1>OCEAN</h1>
         <nav>
             <a href="/">Home</a>
             <a href="/apps">Apps</a>
@@ -35,4 +45,13 @@
     </div>
     </main>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const bubbles = document.querySelectorAll('.bubble');
+    bubbles.forEach(bubble => {
+        const randomPosition = Math.random();
+        bubble.style.setProperty('--random-position', randomPosition);
+    });
+});
+</script>
 </html>
