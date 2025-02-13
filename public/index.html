@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <script src="/&/uv.bundle.js"></script>
     <script src="/&/uv.config.js"></script>
     <script src="/baremux/index.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Astral - Home</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="img/logo.png" />
     <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", async () => {
-                await navigator.serviceWorker.register("/&/sw.js");
-            });
-        }
-        </script>
-</head>
-<body>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", async () => {
+          await navigator.serviceWorker.register("/&/sw.js");
+        });
+      }
+    </script>
+  </head>
+  <body>
     <header>
-        <h1>Astral</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="apps.html">Apps</a>
-            <a href="games.html">Games</a>
-        </nav>
+      <h1>Astral</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="apps.html">Apps</a>
+        <a href="games.html">Games</a>
+      </nav>
     </header>
 
     <form>
-        <input type="text" id="urlInput" placeholder="Enter URL here">
-        <button id="searchButton" style="opacity: 0; position: absolute;">Search Text </button>    
+      <input type="text" id="urlInput" placeholder="Enter URL here" />
+      <button id="searchButton" style="opacity: 0; position: absolute">
+        Search Text
+      </button>
     </form>
     <iframe id="iframeWindow" class="iframeWindow"></iframe>
     <script src="js/som.js"></script>
-</body>
+  </body>
+</html>
